@@ -1,0 +1,1 @@
+<h1>Bienvenue sur dizsurf.fr</h1>dsfsdfsdf<br />dsfsdfsdf<br />dsfsdfsdf<br /><h2>dsfsdfsdf</h2>dsfsdfsdf<br />dsfsdfsdf<br />dsfs <a href="?page=inscription">s'inscrire sur ce site !</a> dfgdfgdfg<br /><p>dfgdfg</p>
