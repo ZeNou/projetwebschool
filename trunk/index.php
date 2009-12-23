@@ -5,7 +5,7 @@ mb_internal_encoding ('UTF-8');
 include_once(dirname(__FILE__). '/conf/config.php');
 include_once(dirname(__FILE__). '/conf/fonctions.php');
 include_once(dirname(__FILE__). '/conf/cookies.php');
-
+// blabla
 if (isset($_GET['d']) && isset($_SESSION['id'])) {
 			
 			$_SESSION = array();
