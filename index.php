@@ -5,7 +5,7 @@ mb_internal_encoding ('UTF-8');
 include_once(dirname(__FILE__). '/conf/config.php');
 include_once(dirname(__FILE__). '/conf/fonctions.php');
 include_once(dirname(__FILE__). '/conf/cookies.php');
-// blabla
+
 if (isset($_GET['d']) && isset($_SESSION['id'])) {
 			
 			$_SESSION = array();
@@ -25,8 +25,6 @@ if (isset($_GET['d']) && isset($_SESSION['id'])) {
 			echo "<meta http-equiv=\"Refresh\" content=\"0;URL=?p=1\" />";
 			
 }
-
-// deuxieme comitage :)
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
