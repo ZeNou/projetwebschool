@@ -4,75 +4,56 @@ if(!isset($_SESSION['id']))
 {
 	echo '<h1>Identifiez-vous</h1>';
 
-	$form_loggin = new Form('formulaire_identification', 'POST');
-
-	//$form_loggin->action('?page=login');
-
-	$form_loggin->add('Email', 'log_mail')
-						  ->label("Votre adresse email");
-
-	$form_loggin->add('Password', 'log_pass')
-						  ->label("Votre mot de passe"); 
-								  
-	$form_loggin->add('Submit', 'submit')
-						  ->value("Identification");
-						  
-	$form_loggin->bound($_POST);
+	
+	$form_loggin = '<form id="formulaire_identification" name="formulaire_identification" method="POST">
+								<label for="log_mail">Votre email</label><input type="text" value="" id="log_mail" name="log_mail" /><br /><br />
+								<label for="log_pass">Votre mot de passe</label><input type="text" value="" id="log_pass" name="log_pass" /><br /><br />
+							
+								<input type="submit" name="insc" value="S\'identifier" />
+						
+							</form>';
 
 
 
 
 
-	if ($form_loggin->is_valid($_POST)) {
-
-
-		$phpmail		= $form_loggin->get_cleaned_data('log_mail');
-		$phppass		= $form_loggin->get_cleaned_data('log_pass');
-		
-		$phppass		= sha1($phppass);
+	if(isset($_POST['insc']))
+	{
+	
+		$phpmail 		= $_POST['log_mail'];
+		$phppass 		= sha1($_POST['log_pass']);
 		
 		$verif_infos	= new Sql();
 		
 		
-		$verif_pwd 		= Req($verif_infos,'SELECT id
-																FROM '.tblmembres.'
-																WHERE email = \''.$phpmail.'\'
-																AND pass = \''.$phppass.'\'');
+		$verif_pwd 	= Req($verif_infos,'SELECT id
+														FROM '.tblmembres.'
+														WHERE mail = \''.$phpmail.'\'
+														AND pass = \''.$phppass.'\'');
 
 		if ($verif_pwd == 1)
 		{
-			
-			$tab_infos =	Tab($verif_infos,'SELECT id, pseudo, email, niveau_id, langue_id, parrain, uniqid
-																FROM '.tblmembres.'
-																WHERE email = \''.$phpmail.'\'
-																AND pass = \''.$phppass.'\'');
+			echo 1;
+			$tab_infos =	Tab($verif_infos,'SELECT id, nom, prenom, mail, pseudo, level
+														FROM '.tblmembres.'
+														WHERE mail = \''.$phpmail.'\'
+														AND pass = \''.$phppass.'\';');
 
 			$_SESSION['id'] 				= $tab_infos[0]['id'];
+			$_SESSION['nom'] 			= $tab_infos[0]['nom'];
+			$_SESSION['prenom'] 		= $tab_infos[0]['prenom'];
+			$_SESSION['mail'] 			= $tab_infos[0]['mail'];
 			$_SESSION['pseudo'] 		= $tab_infos[0]['pseudo'];
-			$_SESSION['email'] 			= $tab_infos[0]['email'];
-			$_SESSION['niveau_id'] 	= $tab_infos[0]['niveau_id'];
-			$_SESSION['langue_id'] 	= $tab_infos[0]['langue_id'];
-			$_SESSION['parrain'] 		= $tab_infos[0]['parrain'];
+			$_SESSION['level'] 			= $tab_infos[0]['level'];
 			
-			$phpuniqid	= $tab_infos[0]['uniqid'];
-			$useragent	=	sha1($_SERVER['HTTP_USER_AGENT']);
-			
-			// Place l'user agent crypté dans l'uniqid de l'utilisateur a partir de la position 5
-			$hashcook	=	substr_replace($phpuniqid, $useragent, 5, 0);
-			
-			
-			
-			$_SESSION['hashcook']	=	$hashcook;
 
 			
-			
-			//header('Location: index.php');
-			//Warning: Cannot modify header information - headers already sent by (output started at /var/www/dizsurf/index.php:18) in /var/www/dizsurf/box/login.php on line 59
-			changePage('index.php?c=1', 1);
+			/* Une fois que l'authentification est réussit on change de page */
+			changePage('index.php', 1);
 			
 		}else{
 			
-			echo '<ul class=\'erreur\'>
+			echo '<ul class="erreur">
 						<li>Votre email ou votre mot de passe sont incorrect.</li>
 					</ul>';
 					
@@ -89,10 +70,6 @@ if(!isset($_SESSION['id']))
 		echo $form_loggin; 
 
 	}
-
-}else{
-
-	include(dirname(__FILE__). '/logged.php');
 
 }
 

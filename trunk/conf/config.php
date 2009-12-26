@@ -2,12 +2,12 @@
 
 ### iNFOS SERVEUR MySQL
 define("cfgServeur", "localhost");
-define("cfgBdd", "dizsurf");
+define("cfgBdd", "projetweb");
 define("cfgLogin", "root");
-define("cfgPass", "bambou");
+define("cfgPass", "");
 
 ### TABLES MySQL
-define("tblmembres", "membres");
+define("tblmembres", "membre");
 
 ### iNCLUDES
 
