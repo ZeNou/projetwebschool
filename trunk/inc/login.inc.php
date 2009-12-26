@@ -7,7 +7,7 @@ if(!isset($_SESSION['id']))
 	
 	$form_loggin = '<form id="formulaire_identification" name="formulaire_identification" method="POST">
 								<label for="log_mail">Votre email</label><input type="text" value="" id="log_mail" name="log_mail" /><br /><br />
-								<label for="log_pass">Votre mot de passe</label><input type="text" value="" id="log_pass" name="log_pass" /><br /><br />
+								<label for="log_pass">Votre mot de passe</label><input type="password" value="" id="log_pass" name="log_pass" /><br /><br />
 							
 								<input type="submit" name="insc" value="S\'identifier" />
 						
