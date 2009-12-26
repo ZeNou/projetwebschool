@@ -1,20 +1,5 @@
 <?php
 
-	function GenerePassword($nbchar) 
-	{
-		$Caractere_possible = "123456789"; 
-
-		srand((double)microtime()*1000000); 
-		$Pass = "";
-		
-		for($i=0; $i<$nbchar; $i++){  // OK GENERE LE PASS DE 6 CHR
-		
-			$Pass .= $Caractere_possible[rand()%strlen($Caractere_possible)]; 
-		}
-		
-		return $Pass;
-	}
-	
 	
 	function Req($obj, $requete)
 	{
