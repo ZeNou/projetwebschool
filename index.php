@@ -52,28 +52,28 @@ if (isset($_GET['d']) && isset($_SESSION['id'])) {
 		</div>
 		
 		<dl id="menu">
-			<dt><a href="index.php?page=article&amp;rubrique=1">Rubrique 1</a></dt>
+			<dt><a href="index.php?page=article&rubrique=1">Rubrique 1</a></dt>
 			<dd>
 				<ul>
-					<li><a href="index.php?page=article&amp;article=1">article 1.1</a></li>
-					<li><a href="index.php?page=article&amp;article=2">article 1.2</a></li>
-					<li><a href="index.php?page=article&amp;article=3">article 1.3</a></li>
+					<li><a href="index.php?page=article&article=1">article 1.1</a></li>
+					<li><a href="index.php?page=article&article=2">article 1.2</a></li>
+					<li><a href="index.php?page=article&article=3">article 1.3</a></li>
 				</ul>
 			</dd>
-			<dt><a href="index.php?page=article&amp;rubrique=2">Rubrique 2</a></dt>
+			<dt><a href="index.php?page=article&rubrique=2">Rubrique 2</a></dt>
 			<dd>
 				<ul>
-					<li><a href="index.php?page=article&amp;article=4">article 2.1</a></li>
-					<li><a href="index.php?page=article&amp;article=5">article 2.2</a></li>
-					<li><a href="index.php?page=article&amp;article=6">article 2.3</a></li>
+					<li><a href="index.php?page=article&article=4">article 2.1</a></li>
+					<li><a href="index.php?page=article&article=5">article 2.2</a></li>
+					<li><a href="index.php?page=article&article=6">article 2.3</a></li>
 				</ul>
 			</dd>
-			<dt><a href="index.php?page=article&amp;rubrique=3">Rubrique 3</a></dt>
+			<dt><a href="index.php?page=article&rubrique=3">Rubrique 3</a></dt>
 			<dd>
 				<ul>
-					<li><a href="index.php?page=article&amp;article=7">article 3.1</a></li>
-					<li><a href="index.php?page=article&amp;article=8">article 3.2</a></li>
-					<li><a href="index.php?page=article&amp;article=9">article 3.3</a></li>
+					<li><a href="index.php?page=article&article=7">article 3.1</a></li>
+					<li><a href="index.php?page=article&article=8">article 3.2</a></li>
+					<li><a href="index.php?page=article&article=9">article 3.3</a></li>
 				</ul>
 			</dd>
 		</dl>
