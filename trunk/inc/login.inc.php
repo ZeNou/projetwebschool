@@ -13,10 +13,6 @@ if(!isset($_SESSION['id']))
 						
 							</form>';
 
-
-
-
-
 	if(isset($_POST['insc']))
 	{
 	
@@ -60,8 +56,6 @@ if(!isset($_SESSION['id']))
 			echo $form_loggin;
 			
 		}
-		
-		
 		
 		$verif_infos->Close();
 		
