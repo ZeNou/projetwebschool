@@ -19,10 +19,8 @@ if (isset($_GET['d']) && isset($_SESSION['id'])) {
 
 			// et on finit par détruire la session
 			session_destroy();
-			// destruction du cookies avant changement de page
-			supprimerCookies();
 			
-			echo "<meta http-equiv=\"Refresh\" content=\"0;URL=?p=1\" />";
+			echo '<meta http-equiv="Refresh" content="0;URL=index.php" />';
 			
 }
 ?>
@@ -46,8 +44,9 @@ if (isset($_GET['d']) && isset($_SESSION['id'])) {
 		<div id="header">
 			<ul>
 				<li><a href="index.php?page=accueil">Accueil</a></li>
-				<li><a href="index.php?page=inscription">Inscription</a></li>
-				<li><a href="index.php?page=login">Login</a></li>
+				<?php if(!isset($_SESSION['id'])) echo '<li><a href="index.php?page=inscription">Inscription</a></li>'; ?>
+				<?php if(!isset($_SESSION['id'])) echo '<li><a href="index.php?page=login">Login</a></li>'; ?>
+				<?php if(isset($_SESSION['id'])) echo '<li><a href="index.php?page=accueil&d=1">Se Déconnecter</a></li>'; ?>
 			</ul>
 		</div>
 		

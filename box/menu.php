@@ -41,7 +41,7 @@ if(!isset($_SESSION['id']))
 					<li><a href="index.php?page=article&article=2">Changer son mot de passe</a></li>
 				</ul>
 			</dd>
-			<dt><a href="index.php?page=article&rubrique=3">Se déconnecter</a></dt>
+			<dt><a href="index.php?page=accueil&d=1">Se déconnecter</a></dt>
 	';
 
 }
