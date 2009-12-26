@@ -58,7 +58,7 @@
 			
 		}elseif($taille == 'petit'){
 			
-			echo '<span class="PseudoPetit">'.$_SESSION['pseudo'].'</span>';
+			echo $_SESSION['pseudo'];
 			
 		}else{
 			
