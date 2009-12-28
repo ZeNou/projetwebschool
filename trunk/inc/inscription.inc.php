@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION['id']))
 {
-	echo '<h1>Inscrivez-vous</h1>';
+	echo '<h1>Inscrivez-vous</h1><br />';
 	
 	$form_loggin = '
 			<form method="POST" name="formulaire_inscription" id="formulaire_inscription">
