@@ -34,6 +34,7 @@ if (isset($_GET['d']) && isset($_SESSION['id'])) {
 	<link href="css/general.css" rel="stylesheet" type="text/css" />
 	
 	<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script> 
+	<script type="text/javascript" src="js/script.js"></script> 
 
 </head>
 
