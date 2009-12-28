@@ -6,11 +6,17 @@ if(!isset($_SESSION['id']))
 
 	
 	$form_loggin = '<form id="formulaire_identification" name="formulaire_identification" method="POST">
-								<label for="log_mail">Votre email</label><input type="text" value="" id="log_mail" name="log_mail" /><br /><br />
-								<label for="log_pass">Votre mot de passe</label><input type="password" value="" id="log_pass" name="log_pass" /><br /><br />
-							
-								<input type="submit" name="insc" value="S\'identifier" />
-						
+								<table>
+									<tr>
+										<td><label for="log_mail">Votre email</label></td><td><input type="text" value="" id="log_mail" name="log_mail" /></td>
+									</tr>
+									<tr>
+										<td><label for="log_pass">Votre mot de passe</label></td><td><input type="password" value="" id="log_pass" name="log_pass" /></td>
+									</tr>
+									<tr>
+										<td colspan="2"><input type="submit" name="insc" value="S\'identifier" /></td>
+									</tr>
+								</table>
 							</form>';
 
 	if(isset($_POST['insc']))
