@@ -1,4 +1,6 @@
 $(function(){
+
+	// VERIFICATION DU FORMULAIRE D'INSCRIPTION
 	$('#valid_inscription').click(function() {
 		var valid_formulaire = true ;
 		
@@ -107,4 +109,6 @@ $(function(){
 		
 		return valid_formulaire ;
 	});
+	//FIN VERIF FORM INSCRIPTION
+	
 });
