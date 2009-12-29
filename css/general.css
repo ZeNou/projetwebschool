@@ -9,78 +9,84 @@ body {
 }
 
 div#header {
-	width: 800px;
+	width: 1000px;
 	height: 30px;
 	padding: 40px 0 0;
 	background-color: #000;
+	margin: auto;
 }
 
-div#header ul li {
-	float: left;
-	height: 30px;
-	border-left: 1px solid #f00;
-}
+	div#header ul li {
+		float: left;
+		height: 30px;
+		border-left: 1px solid #f00;
+	}
 
-div#header ul li:first-child {
-	border: none;
-}
+	div#header ul li:first-child {
+		border: none;
+	}
 
-div#header ul li a {
-	display: block;
-	line-height: 30px;
-	padding: 0 15px;
-	font-size: 1.2em;
-}
+	div#header ul li a {
+		display: block;
+		line-height: 30px;
+		padding: 0 15px;
+		font-size: 1.2em;
+	}
 
-div#header ul li a:link {
-	color: #eee;
-}
+	div#header ul li a:link {
+		color: #eee;
+	}
 
-div#header ul li a:visited {
-	color: #999;
-}
+	div#header ul li a:visited {
+		color: #999;
+	}
 
-div#header ul li a:hover {
-	background-color: #666;
-	color: #000;
-}
+	div#header ul li a:hover {
+		background-color: #666;
+		color: #000;
+	}
 
-div#header ul li a:active {
-	background-color: #666;
-	color: #f00;
-}
-
+	div#header ul li a:active {
+		background-color: #666;
+		color: #f00;
+	}
+	
 dl#menu, div#page {
 	float: left;
 }
 
-dl#menu {
-	width: 180px;
-	padding: 0 10px 10px;
-	background-color: #fff;
-}
+	dl#menu {
+		width: 250px;
+		padding: 0 10px 10px;
+		background-color: #fff;
+	}
 
-dl#menu dt {
-	margin: 10px 0 0;
-}
+	dl#menu dt {
+		margin: 10px 0 0;
+	}
 
-dl#menu dt a, dl#menu dt {
-	font-size: 1.3em;
-	color: #000;
-}
+	dl#menu dt a, dl#menu dt {
+		font-size: 1.3em;
+		color: #000;
+	}
 
-dl#menu dd ul li a {
-	color: #222;
-	font-size: 1.1em;
-	display: block;
-	padding: 0 0 0 10px;
-}
+	dl#menu dd ul li a {
+		color: #222;
+		font-size: 1.1em;
+		display: block;
+		padding: 0 0 0 10px;
+	}
 
 div#page {
-	width: 580px;
+	width: 710px;
 	padding: 10px;
 	background-color: #ddd;
 	min-height: 300px;
+}
+
+div#container {
+	margin: auto;
+	width: 1000px;
 }
 
 p#footer {
@@ -91,6 +97,8 @@ p#footer {
 	font-size: 1.1em;
 	color: #FF0;
 	background-color: #000;
+	margin: auto;
+	width: 1000px;
 }
 
 p#footer a {

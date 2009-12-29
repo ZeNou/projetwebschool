@@ -51,12 +51,14 @@ if (isset($_GET['d']) && isset($_SESSION['id'])) {
 			</ul>
 		</div>
 		
-		<?php include(dirname(__FILE__). '/box/menu.php'); ?>
-		
-		<div id="page">
+		<div id="container">
+			<?php include(dirname(__FILE__). '/box/menu.php'); ?>
 			
-			<?php include(dirname(__FILE__). '/centre.php'); ?>
-			
+			<div id="page">
+				
+				<?php include(dirname(__FILE__). '/centre.php'); ?>
+				
+			</div>
 		</div>
 		
 		<p id="footer">&copy; <?php echo date("Y"); ?>, INSIA - <a href="index.php?page=contact">Contact</a></p>
