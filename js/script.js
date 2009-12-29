@@ -1,4 +1,4 @@
-$(function(){
+﻿$(function(){
 
 	// VERIFICATION DU FORMULAIRE D'INSCRIPTION
 	$('#valid_inscription').click(function() {
@@ -13,6 +13,11 @@ $(function(){
 		else if(!$("#pseudo").val().match(/^[a-zA-Z]*$/))
 		{
 			$("#pseudo").next(".error").fadeIn().text("Veuillez saisir un pseudo valide") ;
+			valid_formulaire = false ;
+		}
+		else if($("#pseudo").val().length <= 2 )
+		{
+			$("#pseudo").next(".error").fadeIn().text("Pseudo de 3 caractéres minimum") ;
 			valid_formulaire = false ;
 		}
 		else 
@@ -31,6 +36,11 @@ $(function(){
 			$("#nom").next(".error").fadeIn().text("Veuillez saisir un nom valide") ;
 			valid_formulaire = false ;
 		}
+		else if($("#nom").val().length <= 2 )
+		{
+			$("#nom").next(".error").fadeIn().text("Nom de 3 caractéres minimum") ;
+			valid_formulaire = false ;
+		}
 		else 
 		{
 			$("#nom").next(".error").fadeOut();
@@ -45,6 +55,11 @@ $(function(){
 		else if(!$("#prenom").val().match(/^[a-zA-Z]*$/))
 		{
 			$("#prenom").next(".error").fadeIn().text("Veuillez saisir un prenom valide") ;
+			valid_formulaire = false ;
+		}
+		else if($("#prenom").val().length <= 2 )
+		{
+			$("#prenom").next(".error").fadeIn().text("Prenom de 3 caractére minimum") ;
 			valid_formulaire = false ;
 		}
 		else 
@@ -63,6 +78,11 @@ $(function(){
 			$("#pass").next(".error").fadeIn().text("Veuillez saisir un mot de passe valide") ;
 			valid_formulaire = false ;
 		}
+		else if($("#pass").val().length <= 5 )
+		{
+			$("#pass").next(".error").fadeIn().text("Mot de passe de 6 caractéres minimum") ;
+			valid_formulaire = false ;
+		}
 		else 
 		{
 			$("#pass").next(".error").fadeOut();
@@ -77,6 +97,11 @@ $(function(){
 		else if(!$("#pass2").val().match(/^[a-zA-Z\d]*$/))
 		{
 			$("#pass2").next(".error").fadeIn().text("Votre confirmation du mot de passe n'est pas valide") ;
+			valid_formulaire = false ;
+		}
+		else if($("#pass2").val().length <= 5 )
+		{
+			$("#pass2").next(".error").fadeIn().text("Mot de passe de 6 caractéres minimum") ;
 			valid_formulaire = false ;
 		}
 		else 
