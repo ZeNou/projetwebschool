@@ -1,0 +1,17 @@
+ul.erreur li{
+	font-family: sans-serif;
+	font-size: 90%;
+	color: #FE0101;
+	text-decoration: underline;
+	background:url('../images/png/error.png') no-repeat left;
+	padding-left:15px;
+}
+
+ul.ok li{
+	font-family: sans-serif;
+	font-size: 90%;
+	color: #248D0A;
+	text-decoration: underline;
+	background:url('../images/png/good.png') no-repeat left;
+	padding-left:15px;
+}
