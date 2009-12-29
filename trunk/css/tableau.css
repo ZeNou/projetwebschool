@@ -3,8 +3,7 @@
 /* TABLEAU */
 table {
 	border-collapse: collapse;
-	width: 90%;
-	margin: auto;
+	margin-left: 20px;
 }
 thead, tfoot {
 	background-color: #D0E3FA;
