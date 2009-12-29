@@ -1,4 +1,5 @@
 @import url('./reset.css');
+@import url('./tableau.css');
 
 body {
 	color: #111;
@@ -6,8 +7,6 @@ body {
 	font-size: 12px;
 	background-color: #eee;
 }
-
-
 
 div#header {
 	width: 800px;
@@ -65,7 +64,7 @@ dl#menu dt {
 	margin: 10px 0 0;
 }
 
-dl#menu dt a {
+dl#menu dt a, dl#menu dt {
 	font-size: 1.3em;
 	color: #000;
 }
@@ -96,52 +95,4 @@ p#footer {
 
 p#footer a {
 	color: #ff0;
-}
-
-/* TABLEAU */
-table {
-	border-collapse: collapse;
-	width: 90%;
-	margin: auto;
-}
-thead, tfoot {
-	background-color: #D0E3FA;
-	border: 1px solid #6495ed;
-}
-tbody {
-	background-color: #FFFFFF;
-	border: 1px solid #6495ed;
-}
-th {
-	font-family: monospace;
-	border: 1px dotted #6495ed;
-	padding: 5px;
-	background-color: #EFF6FF;
-	width: 25%;
-}
-td {
-	font-family: sans-serif;
-	font-size: 80%;
-	border: 1px solid #6495ed;
-	padding: 5px;
-	text-align: left;
-}
-
-td span.error {
-	font-family: sans-serif;
-	font-size: 90%;
-	color: red;
-	text-decoration: underline;
-	display: none;
-	background:url('../images/png/error.png') no-repeat left;
-	padding-left:15px;
-}
-
-ul.erreur li{
-	font-family: sans-serif;
-	font-size: 90%;
-	color: red;
-	text-decoration: underline;
-	background:url('../images/png/error.png') no-repeat left;
-	padding-left:15px;
 }
