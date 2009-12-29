@@ -31,7 +31,6 @@ if(!isset($_SESSION['id']))
 
 		if ($verif_pwd == 1)
 		{
-			echo 1;
 			$tab_infos =	Tab($verif_infos,'	SELECT id, nom, prenom, mail, pseudo, level
 												FROM '.tblmembres.'
 												WHERE mail = \''.$phpmail.'\'
