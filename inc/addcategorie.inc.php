@@ -67,9 +67,11 @@ if($_SESSION['level'] == 9)
 }
 else
 {
+
 	echo '<br /><br />
 			<ul class="erreur">
 				<li>Vous n\'avez pas accès à cette page</li>
 			</ul>' ;
+
 }
 ?>
