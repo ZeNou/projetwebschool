@@ -1,7 +1,7 @@
 <?php
 if(!isset($_SESSION['id']))
 {
-	$form_loggin = '<h1>Inscrivez-vous</h1><br />
+	$form_login = '<h1>Inscrivez-vous</h1><br />
 			<form method="POST" name="formulaire_inscription" id="formulaire_inscription">
 				<table id="formulaire_inscription">
 					<tr>
@@ -111,12 +111,14 @@ if(!isset($_SESSION['id']))
 		
 		if (count($erreur) != 0)
 		{
-			echo "<ul>" ;
+			echo $form_login;
+		
+			echo '<br /><br /><ul class="erreur">' ;
 			foreach ($erreur as $err_msg)
 			{
-				echo "<li>".$err_msg."</li>" ;
+				echo '<li>'.$err_msg.'</li>';
 			}
-			echo "</ul>";
+			echo '</ul>';
 		}
 		else
 		{
@@ -133,7 +135,7 @@ if(!isset($_SESSION['id']))
 		
 	}else{
 	
-		echo $form_loggin; 
+		echo $form_login; 
 		
 	}
 }
