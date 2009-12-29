@@ -1,5 +1,6 @@
 @import url('./reset.css');
 @import url('./tableau.css');
+@import url('./affichage.css');
 
 body {
 	color: #111;
