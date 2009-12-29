@@ -136,3 +136,12 @@ td span.error {
 	background:url('../images/png/error.png') no-repeat left;
 	padding-left:15px;
 }
+
+ul.erreur li{
+	font-family: sans-serif;
+	font-size: 90%;
+	color: red;
+	text-decoration: underline;
+	background:url('../images/png/error.png') no-repeat left;
+	padding-left:15px;
+}

@@ -49,11 +49,12 @@ if(!isset($_SESSION['id']))
 			
 		}else{
 		
-			echo '	<ul class="erreur">
+			echo $form_loggin;	
+		
+			echo '	<br /><br />
+					<ul class="erreur">
 						<li>Votre email ou votre mot de passe sont incorrect.</li>
-					</ul>';
-					
-			echo $form_loggin;			
+					</ul>';		
 		}
 		
 		$verif_infos->Close();
