@@ -1,4 +1,6 @@
 ﻿<?php
+if($_SESSION['level'] == 9)
+{
 	$form_addcat = '<h1>Ajouter une nouvelle catégorie</h1><br />
 			<form method="POST" name="formulaire_addcat" id="formulaire_addcat">
 				<table id="formulaire_addcat">
@@ -44,9 +46,9 @@
 		{
 			if(count($erreur) == 0)
 			{
-				$new_insc = new Sql();
+				$new_cat = new Sql();
 						
-				$add_new = Req($new_insc,'	INSERT INTO categorie (nom)
+				$add_new = Req($new_cat,'	INSERT INTO categorie (nom)
 											VALUES (\''.$phpnomcat.'\'); ');
 											
 				echo $form_addcat ;
@@ -62,4 +64,12 @@
 	{	
 		echo $form_addcat ; 
 	}
+}
+else
+{
+	echo '<br /><br />
+			<ul class="erreur">
+				<li>Vous n\'avez pas accès à cette page</li>
+			</ul>' ;
+}
 ?>
