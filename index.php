@@ -20,8 +20,7 @@ if (isset($_GET['d']) && isset($_SESSION['id'])) {
 			// et on finit par détruire la session
 			session_destroy();
 			
-			echo '<meta http-equiv="Refresh" content="0;URL=index.php" />';
-			
+			echo '<meta http-equiv="Refresh" content="0;URL=index.php" />';			
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
