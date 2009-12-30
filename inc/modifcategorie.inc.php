@@ -1,5 +1,5 @@
 ﻿<?php
-if($_SESSION['level'] == 9)
+if(isset($_SESSION['id']) AND $_SESSION['level'] == 9)
 {
 
 	echo '<h1>Ajouter une nouvelle catégorie</h1><br />' ;
@@ -14,7 +14,7 @@ if($_SESSION['level'] == 9)
 		<table>
 			<tr>
 				<th>ID</th>
-				<th colspan="2">Nom de la catégorie</th>
+				<th colspan="3">Nom de la catégorie</th>
 			</tr>' ;
 	foreach ($tab_cat as $tab_msg)
 	{
@@ -22,7 +22,8 @@ if($_SESSION['level'] == 9)
 		echo '<tr>
 				<td>'.$tab_msg['id'].'</td>
 				<td>'.$tab_msg['nom'].' </td>
-				<td><a href="index.php?page=modifcategorie&idcat='.$id.'"><img src="./images/png/edit.png" alt="edition" /></a></td>
+				<td><a href="index.php?page=modifcategorie&idcat='.$id.'&action='.base64_encode('modif').'"><img src="./images/png/edit.png" alt="éditer la catégorie" title="modifier"/></a></td>
+				<td><a href="index.php?page=modifcategorie&idcat='.$id.'&action='.base64_encode('supp').'"><img src="./images/png/supp.png" alt="supprimer la catégorie" title="supprimer"/></a></td>
 			</tr>';
 	}
 	echo '</table>
@@ -31,24 +32,36 @@ if($_SESSION['level'] == 9)
 	if(isset($_GET['idcat']))
 	{
 		$idok = base64_decode($_GET['idcat']) ;
-		?>
-			<div class="form_modifcat">
-				<form action="#" method="POST" name="formulaire_newnamecat" id="formulaire_newnamecat">
-					<input type="hidden" name="idcat" value="<?php echo $_GET['idcat'] ?>" />
-					<table id="formulaire_newnamecat">
-						<tr>
-							<th> <label for="add_newnamecat"> Nouveau nom de la catégorie <?php echo $idok ; ?> : </label> </th>
-						</tr>
-						<tr>
-							<td> <input type="text" name="add_newnamecat" id="add_newnamecat"/> <span class="error"> &nbsp; </span> </td>
-						</tr>
-						<tr>
-							<td> <input type="submit" value="Confirmer" name="confirm_addNewNameCat" id="confirm_addNewNameCat" /> </td>
-						</tr>
-					</table>
-				</form>
-			</div>		
-		<?php
+		if(base64_decode($_GET['action']) == "modif")
+		{
+			?>
+				<div class="form_modifcat">
+					<form action="#" method="POST" name="formulaire_newnamecat" id="formulaire_newnamecat">
+						<input type="hidden" name="idcat" value="<?php echo $_GET['idcat'] ?>" />
+						<table id="formulaire_newnamecat">
+							<tr>
+								<th> <label for="add_newnamecat"> Nouveau nom de la catégorie <?php echo $idok ; ?> : </label> </th>
+							</tr>
+							<tr>
+								<td> <input type="text" name="add_newnamecat" id="add_newnamecat"/> <span class="error"> &nbsp; </span> </td>
+							</tr>
+							<tr>
+								<td> <input type="submit" value="Confirmer" name="confirm_addNewNameCat" id="confirm_addNewNameCat" /> </td>
+							</tr>
+						</table>
+					</form>
+				</div>		
+			<?php
+		}
+		elseif(base64_decode($_GET['action']) == "supp")
+		{
+			$del_cat = new Sql();
+						
+			$del = Req($del_cat,'	DELETE FROM categorie
+									WHERE id = '.$idok.'  ');
+										
+			changePage('index.php?page=modifcategorie', 1);								
+		}
 	}	
 	
 	if(isset($_POST['confirm_addNewNameCat']))
