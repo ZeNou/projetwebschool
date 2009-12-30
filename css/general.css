@@ -63,7 +63,8 @@ dl#menu, div#page {
 	}
 
 	dl#menu dt {
-		margin: 10px 0 0;
+		margin: 10px 0 5px 0;
+		text-decoration: underline;
 	}
 
 	dl#menu dt a, dl#menu dt {

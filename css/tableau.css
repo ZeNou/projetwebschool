@@ -34,3 +34,7 @@ td span.error {
 	background:url('../images/png/error.png') no-repeat left;
 	padding-left:20px;
 }
+
+td.td_listtxt {
+	text-align: center;
+}
