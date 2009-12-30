@@ -3,6 +3,13 @@ table {
 	border-collapse: collapse;
 	margin-left: 20px;
 }
+
+table#liretxt {
+	border-collapse: collapse;
+	margin-left: 20px;
+	width: 90%;
+}
+
 thead, tfoot {
 	background-color: #D0E3FA;
 	border: 1px solid #6495ed;
