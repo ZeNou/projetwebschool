@@ -15,3 +15,11 @@ ul.ok li{
 	background:url('../images/png/good.png') no-repeat left;
 	padding-left:15px;
 }
+
+div#listeCat {
+	float: left;
+}
+
+div.form_modifcat {
+	margin-left: 300px;
+}

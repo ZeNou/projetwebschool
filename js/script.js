@@ -136,4 +136,59 @@
 	});
 	//FIN VERIF FORM INSCRIPTION
 	
+	//VERIFICATION DU FORMULAIRE D'AJOUT D'UNE CATEGORIE
+	$('#valid_addcat').click(function() {
+		var valid_formulaire = true ;
+		
+		//VERIF DU NOM
+		if($("#cat").val() == "")
+		{
+			$("#cat").next(".error").fadeIn().text("Nom vide") ;
+			valid_formulaire = false ;
+		}
+		else if(!$("#cat").val().match(/^[a-zA-Z]*$/))
+		{
+			$("#cat").next(".error").fadeIn().text("Saisir un nom valide") ;
+			valid_formulaire = false ;
+		}
+		else if($("#cat").val().length <= 2 )
+		{
+			$("#cat").next(".error").fadeIn().text("3 caractéres minimum") ;
+			valid_formulaire = false ;
+		}
+		else 
+		{
+			$("#cat").next(".error").fadeOut();
+		}
+		
+		return valid_formulaire ;
+	});
+	
+	//VERIFICATION DU FORMULAIRE DE MODIFICATION D'UNE CATEGORIE
+	$('#confirm_addNewNameCat').click(function() {
+		var valid_formulaire = true ;
+		
+		//VERIF DU NOM
+		if($("#add_newnamecat").val() == "")
+		{
+			$("#add_newnamecat").next(".error").fadeIn().text("Nom vide") ;
+			valid_formulaire = false ;
+		}
+		else if(!$("#add_newnamecat").val().match(/^[a-zA-Z]*$/))
+		{
+			$("#add_newnamecat").next(".error").fadeIn().text("Saisir un nom valide") ;
+			valid_formulaire = false ;
+		}
+		else if($("#add_newnamecat").val().length <= 2 )
+		{
+			$("#add_newnamecat").next(".error").fadeIn().text("3 caractéres minimum") ;
+			valid_formulaire = false ;
+		}
+		else 
+		{
+			$("#add_newnamecat").next(".error").fadeOut();
+		}
+		
+		return valid_formulaire ;
+	});
 });

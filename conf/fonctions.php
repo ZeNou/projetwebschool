@@ -85,10 +85,14 @@
 			echo '<meta http-equiv="refresh" content="0;url='.$page.'" />';
 			
 			
+		}elseif($type == 2){
+		
+			echo '<meta http-equiv="refresh" content="2;url='.$page.'" />';
+		
 		}else{
 		
 			echo '<meta http-equiv="refresh" content="0;url='.$page.'" />';
-		
+			
 		}
 	}
 	

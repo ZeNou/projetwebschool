@@ -28,7 +28,8 @@ if($_SESSION['level'] == 9)
 		{
 			if (strlen($phpnomcat) < 2)
 			{
-				array_push($erreur, "Saisir un nom de 2 caractéres minimum") ;			}	
+				array_push($erreur, "Saisir un nom de 2 caractéres minimum") ;			
+			}	
 		}	
 		
 		if (count($erreur) != 0)
