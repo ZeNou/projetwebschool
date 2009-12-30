@@ -19,7 +19,7 @@ if(!isset($_SESSION['id']))
 		echo '	<dt>Bienvenue '.$_SESSION['pseudo'].' :</dt>
 					<dd>
 						<ul>
-							<li><a href="index.php?page=liretext">Lire des textes</a></li>
+							<li><a href="index.php?page=listtext">Lire des textes</a></li>
 							<li><a href="index.php?page=addtext">Ajouter un récit</a></li>
 						</ul>
 					</dd>
@@ -39,7 +39,7 @@ if(!isset($_SESSION['id']))
 		echo '	<dt>Bienvenue '.$_SESSION['pseudo'].' :</dt>
 				<dd>
 					<ul>
-						<li><a href="index.php?page=liretext">Lire des textes</a></li>
+						<li><a href="index.php?page=listtext">Lire des textes</a></li>
 						<li><a href="index.php?page=addtext">Ajouter un récit</a></li>
 					</ul>
 				</dd>
