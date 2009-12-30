@@ -39,7 +39,7 @@ if(!isset($_SESSION['id']))
 		echo '	<dt>Bienvenue '.$_SESSION['pseudo'].' :</dt>
 				<dd>
 					<ul>
-						<li><a href="index.php?page=">Ajouter un récit</a></li>
+						<li><a href="index.php?page=addtext">Ajouter un récit</a></li>
 						<li><a href="index.php?page=">Changer son mot de passe</a></li>
 					</ul>
 				</dd>

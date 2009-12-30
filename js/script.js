@@ -1,6 +1,6 @@
 ﻿$(function(){
 
-	// VERIFICATION DU FORMULAIRE D'INSCRIPTION
+	// VERIFICATION DU FORMULAIRE D'INSCRIPTION -----------------------------------------------------------------------------------------------------------------
 	$('#valid_inscription').click(function() {
 		var valid_formulaire = true ;
 		
@@ -136,7 +136,7 @@
 	});
 	//FIN VERIF FORM INSCRIPTION
 	
-	//VERIFICATION DU FORMULAIRE D'AJOUT D'UNE CATEGORIE
+	//VERIFICATION DU FORMULAIRE D'AJOUT D'UNE CATEGORIE -------------------------------------------------------------------------------------------------------
 	$('#valid_addcat').click(function() {
 		var valid_formulaire = true ;
 		
@@ -164,7 +164,7 @@
 		return valid_formulaire ;
 	});
 	
-	//VERIFICATION DU FORMULAIRE DE MODIFICATION D'UNE CATEGORIE
+	//VERIFICATION DU FORMULAIRE DE MODIFICATION D'UNE CATEGORIE ----------------------------------------------------------------------------------------------
 	$('#confirm_addNewNameCat').click(function() {
 		var valid_formulaire = true ;
 		
@@ -187,6 +187,90 @@
 		else 
 		{
 			$("#add_newnamecat").next(".error").fadeOut();
+		}
+		
+		return valid_formulaire ;
+	});
+	
+	//VERIFICATION DU FORMULAIRE D'AJOUT D'UN TEXTE -----------------------------------------------------------------------------------------------------------------
+	$('#valid_addtext').click(function() {
+		var valid_formulaire = true ;
+		
+		//VERIF DU TITRE
+		if($("#titre").val() == "")
+		{
+			$("#titre").next(".error").fadeIn().text("Titre vide") ;
+			valid_formulaire = false ;
+		}
+		else if(!$("#titre").val().match(/^[a-zA-Z ]*$/))
+		{
+			$("#titre").next(".error").fadeIn().text("Saisir un titre valide") ;
+			valid_formulaire = false ;
+		}
+		else if($("#titre").val().length <= 2 )
+		{
+			$("#titre").next(".error").fadeIn().text("3 caractéres minimum") ;
+			valid_formulaire = false ;
+		}
+		else 
+		{
+			$("#titre").next(".error").fadeOut();
+		}
+		
+		//VERIF DU CORPS
+		if($("#corps").val() == "")
+		{
+			$("#corps").next(".error").fadeIn().text("Le corps du texte est vide") ;
+			valid_formulaire = false ;
+		}
+		else if($("#corps").val().length <= 20 )
+		{
+			$("#corps").next(".error").fadeIn().text("20 caractéres minimum") ;
+			valid_formulaire = false ;
+		}
+		else 
+		{
+			$("#corps").next(".error").fadeOut();
+		}
+		
+		//VERIF DE LA CATEGORIE
+		if($("#cat").val() == 0)
+		{
+			$("#cat").next(".error").fadeIn().text("Choisir un catégorie") ;
+			valid_formulaire = false ;
+		}else 
+		{
+			$("#cat").next(".error").fadeOut();
+		}
+		
+		//VERIF DES AUTORISATION
+		var checkOK = $("input:checked").length ;
+      
+		if(checkOK == 0)
+		{
+			if (!confirm("Votre texte ne pourras être ni lu, ni noté, ni commenter ?"))
+			{ 
+				$(".checkboxautorisation").fadeOut() ;
+				valid_formulaire = false ;
+			}
+		}
+		
+		if(checkOK != 0)
+		{
+			var lectureOK = 0 ;
+			for(var i=1; i<=checkOK ; i++)
+			{
+				if($('#check'+[i]).val() == 1)
+				{
+					lectureOK ++ ;
+				}
+			}
+			
+			if(lectureOK == 0)
+			{
+				$(".checkboxautorisation").fadeIn().text("Vous devez mettre votre texte en lecture pour qu'il puisse être lu ou commenté") ;
+				valid_formulaire = false ;	
+			}
 		}
 		
 		return valid_formulaire ;

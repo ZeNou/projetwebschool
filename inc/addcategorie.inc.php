@@ -2,7 +2,7 @@
 if($_SESSION['level'] == 9)
 {
 	$form_addcat = '<h1>Ajouter une nouvelle catégorie</h1><br />
-			<form method="POST" name="formulaire_addcat" id="formulaire_addcat">
+			<form action="#" method="POST" name="formulaire_addcat" id="formulaire_addcat">
 				<table id="formulaire_addcat">
 					<tr>
 						<td> <label for="cat"> Catégorie : </label> </td>
