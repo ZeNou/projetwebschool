@@ -1,3 +1,4 @@
+/*AFFICHAGE ETAT*/
 ul.erreur li{
 	font-family: sans-serif;
 	font-size: 90%;
@@ -16,10 +17,19 @@ ul.ok li{
 	padding-left:15px;
 }
 
+/*FORMLAIRE MODIF CAT*/
 div#listeCat {
 	float: left;
 }
 
 div.form_modifcat {
 	margin-left: 300px;
+}
+
+/*FORMLAIRE AJOUT TEXTE*/
+form#formulaire_addtext {
+	float: left;
+}
+div.form_addtxt {
+	margin-left: 400px;
 }
