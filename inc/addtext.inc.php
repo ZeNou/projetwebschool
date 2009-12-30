@@ -55,7 +55,11 @@ if(isset($_SESSION['id']))
 		$phptitre = $_POST['add_txttitre'];
 		$phpcorps = $_POST['add_txtcorps'];
 		$phpcat = base64_decode($_POST['add_txtcat']);
-		$phpdroit = $_POST['droit'];
+		
+		if(isset($_POST['droit']))
+			$phpdroit = $_POST['droit'];
+		else
+			$phpdroit = array(0,0,0) ;
 		
 		foreach ($phpdroit as $choix)
 		{
@@ -130,7 +134,7 @@ if(isset($_SESSION['id']))
 		else
 		{
 			//CREATION FICHIER TXT
-			$filename = 'txt_'.$_SESSION['id'].'#'.$phpcat.'#'.$phptitre.'#'.$phplecture.'#'.$phpnotation.'#'.$phpcomm.'.txt' ;
+			$filename = $_SESSION['id'].'#'.$phpcat.'#'.$phptitre.'#'.$phplecture.'#'.$phpnotation.'#'.$phpcomm.'#'.time().'.txt' ;
         
 				$open = fopen('user_txt/'.$filename,"w+");
 			 
