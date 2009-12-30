@@ -1,4 +1,6 @@
 ﻿<?php
+if(isset($_SESSION['id']))
+{
 	echo '
 	<table id="listtext">
 		<tr>
@@ -21,7 +23,7 @@
 		if(!is_dir('user_txt'.'/'.$file) AND $file != '.' AND $file != '..') 
 		{
 			$valeur = explode("#", $file) ;
-			$extension = explode(".", $valeur[6]) ;
+			$extension = explode(".", $valeur[7]) ;
 			
 			$search_cat = new Sql();
 			
@@ -41,20 +43,23 @@
 			if($valeur[4] == 1) $valeur[4] = "oui"; else $valeur[4] = "non" ;
 			if($valeur[5] == 1) $valeur[5] = "oui"; else $valeur[5] = "non" ;
 			
+			$valeur = array($valeur[0],$valeur[1],$valeur[2],$valeur[3],$valeur[4],$valeur[5],$valeur[6],$valeur[7]) ;
+			
 				echo '
 					<tr> 
 						<td> '.$valeur[0].' </td>
 						<td> '.$valeur[1].' </td>
 						<td> '.$valeur[2].' </td>
-						<td class="td_listtxt"> '.date("Y/n/j H:i:s", $extension[0]).' </td>
+						<td class="td_listtxt"> '.date("\L\e j/n/Y à H:i:s", $valeur[6]).' </td>
 						<td class="td_listtxt"> '.$valeur[3].' </td>
 						<td class="td_listtxt"> '.$valeur[4].' </td>
 						<td class="td_listtxt"> '.$valeur[5].' </td>
-						<td class="td_listtxt"> <a href="index.php?page=liretext" title="Lecture du texte"><img src="./images/png/read.png" alt="lecture" /> </td>
+						<td class="td_listtxt"> <a href="index.php?page=liretext&idtext='.base64_encode($extension[0]).'&aut='.base64_encode($valeur[0]).'&cat='.base64_encode($valeur[1]).'" title="Lecture du texte"><img src="./images/png/read.png" alt="lecture" /> </td>
 					</tr>' ;
 		}
 	}
 	echo '</table>' ;
 	
 	closedir($MyDirectory);
+}
 ?>

@@ -33,3 +33,19 @@ form#formulaire_addtext {
 div.form_addtxt {
 	margin-left: 400px;
 }
+
+/*AFFICHAGE DU TXT*/
+fieldset#affichagetxt {
+	font-family: sans-serif;
+	margin: auto;
+	padding: 15px;
+	width: 70% ;
+	height: 200px;
+}
+fieldset#affichagetxt div#corpsdutxt{
+	height: 190px;
+	overflow: auto;
+}
+fieldset legend {
+	font-weight: bold;
+}

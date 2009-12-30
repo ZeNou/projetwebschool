@@ -133,8 +133,19 @@ if(isset($_SESSION['id']))
 		}
 		else
 		{
+			$nbrefile=1;
+			$MyDirectory = opendir('user_txt');
+			while($file = @readdir($MyDirectory)) 
+			{
+				if(!is_dir('user_txt'.'/'.$file) AND $file != '.' AND $file != '..') 
+				{
+					$nbrefile ++ ;
+				}
+			}
+			closedir($MyDirectory);
+			
 			//CREATION FICHIER TXT
-			$filename = $_SESSION['id'].'#'.$phpcat.'#'.$phptitre.'#'.$phplecture.'#'.$phpnotation.'#'.$phpcomm.'#'.time().'.txt' ;
+			$filename = $_SESSION['id'].'#'.$phpcat.'#'.$phptitre.'#'.$phplecture.'#'.$phpnotation.'#'.$phpcomm.'#'.time().'#'.$nbrefile.'.txt' ;
         
 				$open = fopen('user_txt/'.$filename,"w+");
 			 
