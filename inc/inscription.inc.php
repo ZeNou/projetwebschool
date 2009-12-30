@@ -127,7 +127,7 @@ if(!isset($_SESSION['id']))
 				$new_insc = new Sql();
 						
 				$add_new = Req($new_insc,'	INSERT INTO membre (nom, prenom, mail, pseudo, pass, level, date_inscription)
-											VALUES (\''.$phpnom.'\',\''.$phpprenom.'\',\''.$phpmail.'\',\''.$phppseudo.'\',\''.$phppass.'\', 1 , NOW() ); ');
+											VALUES (\''.$phpnom.'\',\''.$phpprenom.'\',\''.$phpmail.'\',\''.$phppseudo.'\',\''.$phppass.'\', 2 , NOW() ); ');
 			
 				echo "Inscription OK" ;
 			}
