@@ -9,7 +9,14 @@ if(isset($_SESSION['id']))
 			<th rowspan="2"> Titre du texte </th>
 			<th rowspan="2"> Date d\'ajout </th>
 			<th colspan="3"> Autorisation </th>		
-			<th rowspan="2"> Lire ce texte </th>			
+			<th rowspan="2"> Lire ce texte </th> ';
+		if($_SESSION['level'] == 9)
+		{
+			echo '
+			<th rowspan="2"> Delete </th> 
+			<th rowspan="2"> Add </th> ';
+		}
+	echo '
 		</tr>
 		<tr>
 			<th>Lecture</th>
@@ -43,8 +50,6 @@ if(isset($_SESSION['id']))
 			if($valeur[4] == 1) $valeur[4] = "oui"; else $valeur[4] = "non" ;
 			if($valeur[5] == 1) $valeur[5] = "oui"; else $valeur[5] = "non" ;
 			
-			$valeur = array($valeur[0],$valeur[1],$valeur[2],$valeur[3],$valeur[4],$valeur[5],$valeur[6],$valeur[7]) ;
-			
 				echo '
 					<tr> 
 						<td> '.$valeur[0].' </td>
@@ -54,8 +59,13 @@ if(isset($_SESSION['id']))
 						<td class="td_listtxt"> '.$valeur[3].' </td>
 						<td class="td_listtxt"> '.$valeur[4].' </td>
 						<td class="td_listtxt"> '.$valeur[5].' </td>
-						<td class="td_listtxt"> <a href="index.php?page=liretext&idtext='.base64_encode($extension[0]).'&aut='.base64_encode($valeur[0]).'&cat='.base64_encode($valeur[1]).'" title="Lecture du texte"><img src="./images/png/read.png" alt="lecture" /> </td>
-					</tr>' ;
+						<td class="td_listtxt"> <a href="index.php?page=liretext&idtext='.base64_encode($extension[0]).'&aut='.base64_encode($valeur[0]).'&cat='.base64_encode($valeur[1]).'" title="Lecture du texte"><img src="./images/png/read.png" alt="lecture" /> </td> ';
+			if($_SESSION['level'] == 9)
+			{
+				echo '	<td class="td_listtxt"> <a href="index.php?page=supptext&idtext='.base64_encode($extension[0]).'" title="Supprimé ce texte"><img src="./images/png/supp.png" alt="suppression" /> </td>
+						<td class="td_listtxt"> <a href="index.php?page=addtobdd&idtext='.base64_encode($extension[0]).'" title="Ajouté à la BDD"><img src="./images/png/save.png" alt="ajouté à la bdd" /> </td> ';
+			}
+			echo'	</tr>' ;
 		}
 	}
 	echo '</table>' ;
