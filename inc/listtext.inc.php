@@ -48,7 +48,7 @@ if(isset($_SESSION['id']))
 		if(!is_dir('user_txt'.'/'.$file) AND $file != '.' AND $file != '..') 
 		{
 			$valeur = explode("#", $file) ;
-			$extension = explode(".", $valeur[7]) ;
+			$extension = explode(".", $valeur[8]) ;
 			
 			$search_cat = new Sql();
 			
