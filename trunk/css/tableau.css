@@ -32,7 +32,7 @@ td {
 	text-align: left;
 }
 
-td span.error {
+span.error {
 	font-family: sans-serif;
 	font-size: 90%;
 	color: #FE0101;

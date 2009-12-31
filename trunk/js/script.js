@@ -236,7 +236,7 @@
 		//VERIF DE LA CATEGORIE
 		if($("#cat").val() == 0)
 		{
-			$("#cat").next(".error").fadeIn().text("Choisir un catégorie") ;
+			$("#cat").next(".error").fadeIn().text("Choisir une catégorie") ;
 			valid_formulaire = false ;
 		}else 
 		{
@@ -273,6 +273,22 @@
 			}
 		}
 		
+		return valid_formulaire ;
+	});
+	
+	//VERIFICATION DU FORMULAIRE DE CHOIX DE CAT (LISTING TEXTE) ----------------------------------------------------------------------------------------------------
+	$('#valid_tricat').click(function() {
+		var valid_formulaire = true ;
+		
+			//VERIF DE LA CATEGORIE
+		if($("#cat").val() == 0)
+		{
+			$("#cat").next(".error").fadeIn().text("Choisir une catégorie") ;
+			valid_formulaire = false ;
+		}else 
+		{
+			$("#cat").next(".error").fadeOut();
+		}
 		return valid_formulaire ;
 	});
 });
