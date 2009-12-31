@@ -9,7 +9,8 @@ if(isset($_SESSION['id']))
 									FROM categorie  ');
 									
 		echo 'Trier par catégorie : <select name="add_txtcat" id="cat">
-				<option value="0" > --- Choisir --- </option>' ;
+				<option value="0" > Choisir une catégorie </option>
+				<option value="ALL"> Toutes les catégories </option>' ;
 			foreach ($tab_cat as $tab_msg)
 			{
 				$id = base64_encode($tab_msg['id']) ;
@@ -68,7 +69,7 @@ if(isset($_SESSION['id']))
 			if($valeur[4] == 1) $valeur[4] = "oui"; else $valeur[4] = "non" ;
 			if($valeur[5] == 1) $valeur[5] = "oui"; else $valeur[5] = "non" ;
 			
-			if(isset($_POST['valid_tricat']))
+			if(isset($_POST['valid_tricat']) AND ($_POST['add_txtcat'] != 'ALL'))
 			{
 				$idcatok = base64_decode($_POST['add_txtcat']) ;
 

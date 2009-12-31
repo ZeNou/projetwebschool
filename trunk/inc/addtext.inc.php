@@ -164,6 +164,8 @@ if(isset($_SESSION['id']))
 							<li>Votre texte à bien été créer</li>
 						</ul>				
 					</div>' ;
+					
+					changePage('index.php?page=listtext', 2);
 				}
 			}
 			else 
