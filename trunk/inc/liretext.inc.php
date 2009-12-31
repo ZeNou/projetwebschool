@@ -20,7 +20,7 @@ if(isset($_GET['idtext']))
 			if(!is_dir('user_txt'.'/'.$file) AND $file != '.' AND $file != '..') 
 			{
 				$search_txt = explode('#' , $file);
-				$extension = explode('.', $search_txt[7]) ;
+				$extension = explode('.', $search_txt[8]) ;
 				if($extension[0] == $idtext)
 				{
 					echo '

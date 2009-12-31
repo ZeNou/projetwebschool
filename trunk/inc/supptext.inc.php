@@ -11,7 +11,7 @@ if(isset($_SESSION['id']) AND $_SESSION['level'] == 9)
 			if(!is_dir('user_txt'.'/'.$file) AND $file != '.' AND $file != '..') 
 			{
 				$valeur = explode("#", $file) ;
-				$extension = explode(".", $valeur[7]) ;
+				$extension = explode(".", $valeur[8]) ;
 				
 				if($extension[0] == $idtxt)
 				{
@@ -32,7 +32,7 @@ if(isset($_SESSION['id']) AND $_SESSION['level'] == 9)
 				
 				if($extension[0] > $idtxt)
 				{
-					rename('user_txt/'.$file.'' , 'user_txt/'.$valeur[0].'#'.$valeur[1].'#'.$valeur[2].'#'.$valeur[3].'#'.$valeur[4].'#'.$valeur[5].'#'.$valeur[6].'#'.($extension[0]-1).'.txt' );
+					rename('user_txt/'.$file.'' , 'user_txt/'.$valeur[0].'#'.$valeur[1].'#'.$valeur[2].'#'.$valeur[3].'#'.$valeur[4].'#'.$valeur[5].'#'.$valeur[6].'#'.$valeur[7].'#'.($extension[0]-1).'.txt' );
 				}
 			}
 		}

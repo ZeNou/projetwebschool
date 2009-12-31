@@ -145,7 +145,7 @@ if(isset($_SESSION['id']))
 			closedir($MyDirectory);
 			
 			//CREATION FICHIER TXT
-			$filename = $_SESSION['id'].'#'.$phpcat.'#'.$phptitre.'#'.$phplecture.'#'.$phpnotation.'#'.$phpcomm.'#'.time().'#'.$nbrefile.'.txt' ;
+			$filename = $_SESSION['id'].'#'.$phpcat.'#'.$phptitre.'#'.$phplecture.'#'.$phpnotation.'#'.$phpcomm.'#'.time().'#false#'.$nbrefile.'.txt' ;
         
 				$open = fopen('user_txt/'.$filename,"w+");
 			 
