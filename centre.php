@@ -15,6 +15,7 @@ if(isset($_GET['page'])){
 	
 	if (in_array($page, glob(dirname(__FILE__).'/inc/*.inc.php'))) {
 		
+		
 	    include($page);
 	    
 	}else{
