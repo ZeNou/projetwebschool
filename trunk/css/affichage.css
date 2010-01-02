@@ -49,3 +49,33 @@ fieldset#affichagetxt div#corpsdutxt{
 fieldset legend {
 	font-weight: bold;
 }
+
+
+dl {
+	width: 250px;
+	padding: 0 10px 10px;
+
+}
+
+dt {
+	margin: 10px 0 5px 0;
+	text-decoration: underline;
+}
+
+dt a, dt {
+	font-size: 1.3em;
+	color: #000;
+}
+
+dd ul li {
+	color: #222;
+	font-size: 1.1em;
+	display: block;
+	padding: 0 0 0 10px;
+}
+
+span.suppr{
+
+	font-size: 0.7em;
+
+}
