@@ -8,6 +8,8 @@ define("cfgPass", "");
 
 ### TABLES MySQL
 define("tblmembres", "membre");
+define("tblamis", "amis");
+define("tblgroupe", "groupe_amis");
 
 ### iNCLUDES
 
