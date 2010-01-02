@@ -34,7 +34,6 @@ if(isset($_GET['idtext']))
 							fclose($ouverturefile); 
 						}
 						
-						echo $search_txt[6] ;
 						$add_txt = new Sql();
 							
 						$add_new = Req($add_txt,'	INSERT INTO texte (id_membre , titre , corps , date_ajout , id_categorie , droit_lecture , droit_notation , droit_commenter)

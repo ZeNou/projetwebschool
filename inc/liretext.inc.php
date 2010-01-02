@@ -10,10 +10,10 @@ if(isset($_GET['idtext']))
 	else
 	{
 		$typefichier = base64_decode($_GET['type']) ;
-	
+		$idtext = base64_decode($_GET['idtext']) ;
+			
 		if($typefichier == 'fichier')
 		{
-			$idtext = base64_decode($_GET['idtext']) ;
 			$auteur = base64_decode($_GET['aut']) ;
 			$categorie = base64_decode($_GET['cat']) ;
 			
@@ -66,7 +66,33 @@ if(isset($_GET['idtext']))
 		}
 		elseif($typefichier == 'bdd')
 		{
-			echo "from bdd" ;
+			$affiche_txt = new Sql();
+	
+			$tab_affichetxt = Tab($affiche_txt,'SELECT m.pseudo, c.nom, t.titre, t.corps, t.date_ajout, t.droit_lecture, t.droit_notation, t.droit_commenter, t.id_categorie, t.id
+												FROM membre m JOIN texte t ON(t.id_membre=m.id) JOIN categorie c ON(c.id=t.id_categorie) 
+												WHERE t.id = '.$idtext.' ');
+		
+			echo '
+				<table id="liretxt">
+					<tr>
+						<th> Auteur </th>
+						<th> Date d\'ajout </th>
+						<th> Catégorie </th>
+						<th> Etat du texte </th>
+					</tr>
+					<tr>
+						<td class="td_listtxt"> '.$tab_affichetxt[0]['pseudo'].' </td>
+						<td class="td_listtxt"> '.date("\L\e j/n/Y à H:i:s", $tab_affichetxt[0]['date_ajout']).' </td>
+						<td class="td_listtxt"> '.$tab_affichetxt[0]['nom'].' </td>
+						<td class="td_listtxt"> Modéré pas l\'administrateur </td>
+					</tr>
+				</table><br /><br />';
+						
+			echo '
+				<fieldset id=affichagetxt>
+					<legend>'.$tab_affichetxt[0]['titre'].'</legend> 
+					'.$tab_affichetxt[0]['corps'].'
+				</fieldset>';
 		}	
 	}
 }
