@@ -4,40 +4,52 @@ if(isset($_SESSION['id']) AND $_SESSION['level'] == 9)
 	if(isset($_GET['idtext']))
 	{
 		$idtxt = base64_decode($_GET['idtext']) ;
-		
-		$MyDirectory = opendir('user_txt');
-		while($file = @readdir($MyDirectory)) 
+		$typefichier = base64_decode($_GET['type']) ;
+	
+		if($typefichier == 'fichier')
 		{
-			if(!is_dir('user_txt'.'/'.$file) AND $file != '.' AND $file != '..') 
+			$MyDirectory = opendir('user_txt');
+			while($file = @readdir($MyDirectory)) 
 			{
-				$valeur = explode("#", $file) ;
-				$extension = explode(".", $valeur[8]) ;
-				
-				if($extension[0] == $idtxt)
+				if(!is_dir('user_txt'.'/'.$file) AND $file != '.' AND $file != '..') 
 				{
-					if(file_exists('user_txt/'.$file))
+					$valeur = explode("#", $file) ;
+					$extension = explode(".", $valeur[8]) ;
+					
+					if($extension[0] == $idtxt)
 					{
-						unlink('user_txt/'.$file);
-						
-						echo '<br /><br />
-						<div class="form_modifcat">
-							<ul class="ok">
-								<li>Fichier supprimé (Veuillez patientez...)</li>
-							</ul>				
-						</div>' ;
-						
-						//changePage('index.php?page=listtext', 2);
+						if(file_exists('user_txt/'.$file))
+						{
+							unlink('user_txt/'.$file);
+							
+							echo '<br /><br />
+							<div class="form_modifcat">
+								<ul class="ok">
+									<li>Fichier supprimé (Veuillez patientez...)</li>
+								</ul>				
+							</div>' ;
+							
+							//changePage('index.php?page=listtext', 2);
+						}
+					}
+					
+					if($extension[0] > $idtxt)
+					{
+						rename('user_txt/'.$file.'' , 'user_txt/'.$valeur[0].'#'.$valeur[1].'#'.$valeur[2].'#'.$valeur[3].'#'.$valeur[4].'#'.$valeur[5].'#'.$valeur[6].'#'.$valeur[7].'#'.($extension[0]-1).'.txt' );
 					}
 				}
-				
-				if($extension[0] > $idtxt)
-				{
-					rename('user_txt/'.$file.'' , 'user_txt/'.$valeur[0].'#'.$valeur[1].'#'.$valeur[2].'#'.$valeur[3].'#'.$valeur[4].'#'.$valeur[5].'#'.$valeur[6].'#'.$valeur[7].'#'.($extension[0]-1).'.txt' );
-				}
 			}
+			closedir($MyDirectory);
 		}
-		closedir($MyDirectory);
-	}
-	
+		else
+		{
+			$del_txt = new Sql();
+						
+			$del = Req($del_txt,'	DELETE FROM texte
+									WHERE id = '.$idtxt.'  ');
+										
+			changePage('index.php?page=listtext', 1);		
+		}
+	}	
 }
 ?>
