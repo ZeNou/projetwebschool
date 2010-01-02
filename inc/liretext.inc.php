@@ -66,7 +66,7 @@ if(isset($_GET['idtext']))
 		}
 		elseif($typefichier == 'bdd')
 		{
-			
+			echo "from bdd" ;
 		}	
 	}
 }
