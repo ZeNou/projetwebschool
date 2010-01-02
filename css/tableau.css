@@ -10,6 +10,14 @@ table#liretxt {
 	width: 90%;
 }
 
+caption {
+	font-family: monospace;
+	padding: 5px;
+	text-align: left;
+	margin-left: 20px;
+	text-decoration:underline;
+}
+
 thead, tfoot {
 	background-color: #D0E3FA;
 	border: 1px solid #6495ed;

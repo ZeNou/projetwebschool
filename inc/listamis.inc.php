@@ -30,10 +30,10 @@ if(!isset($_SESSION['id']))
 			
 			
 			$tab_amis 	= Tab($friends,'SELECT m.id, m.pseudo
-														FROM '.tblamis.' a, '.tblmembres.' m
-														WHERE a.id_amis = m.id
-														AND a.id_groupe_amis = \''.$id_groupe.'\'
-														');
+										FROM '.tblamis.' a, '.tblmembres.' m
+										WHERE a.id_amis = m.id
+										AND a.id_groupe_amis = \''.$id_groupe.'\'
+										');
 								
 								
 			foreach ($tab_amis as $amis)
