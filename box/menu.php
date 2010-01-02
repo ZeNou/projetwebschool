@@ -14,9 +14,8 @@ if(!isset($_SESSION['id']))
 		</dd>';
 	
 }else{
-	if($_SESSION['level'] == 1)
-	{
-		echo '	<dt>Bienvenue '.$_SESSION['pseudo'].' :</dt>
+
+	echo '<dt>Bienvenue '.$_SESSION['pseudo'].' :</dt>
 					<dd>
 						<ul>
 							<li><a href="index.php?page=listtext">Lire des textes</a></li>
@@ -31,36 +30,26 @@ if(!isset($_SESSION['id']))
 							<li><a href="index.php?page=">Modifier votre mot de passe</a></li>
 						</ul>
 					</dd>
-				<dt><a href="index.php?page=">Se déconnecter</a></dt>
 		';
-	}
-	elseif($_SESSION['level'] == 9)
-	{
-		echo '	<dt>Bienvenue '.$_SESSION['pseudo'].' :</dt>
-				<dd>
-					<ul>
-						<li><a href="index.php?page=listtext">Lire des textes</a></li>
-						<li><a href="index.php?page=addtext">Ajouter un récit</a></li>
-					</ul>
-				</dd>
-				<dt>Votre compte : </dt>
+	
+	/* Si le membre est un administrateur */
+	if($_SESSION['level'] == 9){
+	
+		echo '<dt>Catégorie :</dt>
 					<dd>
 						<ul>
-							<li><a href="index.php?page=">Gerer vos amis</a></li>
-							<li><a href="index.php?page=">Modifier les informations de votre compte</a></li>
-							<li><a href="index.php?page=">Modifier votre mot de passe</a></li>
+							<li><a href="index.php?page=addcategorie">Ajouter une catégories</a></li>
+							<li><a href="index.php?page=modifcategorie">Modifier une catégories</a></li>
 						</ul>
 					</dd>
-				<dt>Catégorie :</dt>
-				<dd>
-					<ul>
-						<li><a href="index.php?page=addcategorie">Ajouter une catégories</a></li>
-						<li><a href="index.php?page=modifcategorie">Modifier une catégories</a></li>
-					</ul>
-				</dd>
-				<dt><a href="index.php?page=">Se déconnecter</a></dt>
 		';
+		
 	}
+	
+	echo '<dt><a href="index.php?page=">Se déconnecter</a></dt>';
+	
+	
+	
 }
 
 echo '</dl>';
