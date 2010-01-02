@@ -179,4 +179,12 @@
 
 	}
 	
+	function errAcces()
+	{
+		return('<br /><br />
+					<ul class="erreur">
+						<li>Vous n\'avez pas accès à cette page</li>
+					</ul>');
+	}
+	
 ?>
