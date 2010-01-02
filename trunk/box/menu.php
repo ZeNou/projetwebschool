@@ -25,7 +25,7 @@ if(!isset($_SESSION['id']))
 				<dt>Votre compte : </dt>
 					<dd>
 						<ul>
-							<li><a href="index.php?page=">Gerer vos amis</a></li>
+							<li><a href="index.php?page=listamis">Gerer vos amis</a></li>
 							<li><a href="index.php?page=">Modifier les informations de votre compte</a></li>
 							<li><a href="index.php?page=">Modifier votre mot de passe</a></li>
 						</ul>
