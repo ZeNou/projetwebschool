@@ -40,6 +40,24 @@ td {
 	text-align: left;
 }
 
+td.commentaire_pseudo {
+	font-family: sans-serif;
+	font-size: 80%;
+	border: 1px solid #6495ed;
+	padding: 5px;
+	text-align: left;
+	width:100px;
+}
+
+td.commentaire_corps {
+	font-family: sans-serif;
+	font-size: 80%;
+	border: 1px solid #6495ed;
+	padding: 5px;
+	text-align: left;
+	width:400px;
+}
+
 span.error {
 	font-family: sans-serif;
 	font-size: 90%;

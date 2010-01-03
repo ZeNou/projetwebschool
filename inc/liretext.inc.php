@@ -71,28 +71,99 @@ if(isset($_GET['idtext']))
 			$tab_affichetxt = Tab($affiche_txt,'SELECT m.pseudo, c.nom, t.titre, t.corps, t.date_ajout, t.droit_lecture, t.droit_notation, t.droit_commenter, t.id_categorie, t.id
 												FROM membre m JOIN texte t ON(t.id_membre=m.id) JOIN categorie c ON(c.id=t.id_categorie) 
 												WHERE t.id = '.$idtext.' ');
-		
-			echo '
-				<table id="liretxt">
-					<tr>
-						<th> Auteur </th>
-						<th> Date d\'ajout </th>
-						<th> Catégorie </th>
-						<th> Etat du texte </th>
-					</tr>
-					<tr>
-						<td class="td_listtxt"> '.$tab_affichetxt[0]['pseudo'].' </td>
-						<td class="td_listtxt"> '.date("\L\e j/n/Y à H:i:s", $tab_affichetxt[0]['date_ajout']).' </td>
-						<td class="td_listtxt"> '.$tab_affichetxt[0]['nom'].' </td>
-						<td class="td_listtxt"> Modéré pas l\'administrateur </td>
-					</tr>
-				</table><br /><br />';
-						
-			echo '
-				<fieldset id=affichagetxt>
-					<legend>'.$tab_affichetxt[0]['titre'].'</legend> 
-					'.$tab_affichetxt[0]['corps'].'
-				</fieldset>';
+			
+			
+			$sommesnote = 0;
+			$recup_note = new Sql();	
+			$tab_note = Tab($recup_note,'	SELECT note
+											FROM note
+											WHERE texte_id = '.$idtext.' ');
+				foreach($tab_note as $note)
+				{
+					$sommesnote += $note['note'] ;
+				}
+				$notefinale = $sommesnote/count($tab_note) ;
+				
+			if($tab_affichetxt[0]['droit_lecture'] == 1)
+			{
+				echo '
+					<table id="liretxt">
+						<tr>
+							<th> Auteur </th>
+							<th> Date d\'ajout </th>
+							<th> Catégorie </th>
+							<th> Etat du texte </th>
+							<th> Note du texte </th>
+						</tr>
+						<tr>
+							<td class="td_listtxt"> '.$tab_affichetxt[0]['pseudo'].' </td>
+							<td class="td_listtxt"> '.date("\L\e j/n/Y à H:i:s", $tab_affichetxt[0]['date_ajout']).' </td>
+							<td class="td_listtxt"> '.$tab_affichetxt[0]['nom'].' </td>
+							<td class="td_listtxt"> Modéré pas l\'administrateur </td>
+							<td class="td_listtxt"> '.round($notefinale, "2").'/10 </td>
+						</tr>
+					</table><br /><br />';
+							
+				echo '
+					<fieldset id=affichagetxt>
+						<legend>'.$tab_affichetxt[0]['titre'].'</legend> 
+						'.$tab_affichetxt[0]['corps'].'
+					</fieldset>';
+					
+				if($tab_affichetxt[0]['droit_notation'] == 1)
+				{
+					echo '<form method="POST" action="#" name="noter_txt">
+					Note : <select name="note"' ;
+						for($i=1 ; $i<=10 ;$i++)
+						{
+							echo '<option value="'.$i.'"> '.$i.' </option> ';
+						}
+					echo '</select>
+					</form>
+					<br /><br />';
+				}
+				else
+				{
+					echo '<br /><br />
+					<ul class="erreur">
+						<li>L\'auteur ne souhaite pas que son texte soit noté</li>
+					</ul><br />';	
+				}
+				
+				if($tab_affichetxt[0]['droit_commenter'] == 1)
+				{
+					$affiche_com = new Sql();
+	
+					$tab_affichecom = Tab($affiche_com,'SELECT m.pseudo, t.id, c.corps
+														FROM membre m JOIN commentaire c ON(c.id_membre=m.id) JOIN texte t ON(c.id_texte=t.id) 
+														WHERE c.id_texte = '.$idtext.' ');
+						echo '<table>
+								<caption> Voici vos commentaires </caption>' ;								
+					foreach($tab_affichecom as $tab_msg)
+					{
+						echo '
+						<tr> 
+							<td class="commentaire_pseudo"> '.$tab_msg['pseudo'].' </td>
+							<td class="commentaire_corps"> '.$tab_msg['corps'].' </td>
+						</tr> ';
+					}
+						echo '</table>';
+				}
+				else
+				{
+					echo '<br /><br />
+					<ul class="erreur">
+						<li>L\'auteur à désactiver les commentaires sur son texte</li>
+					</ul>';	
+				}
+			}
+			else
+			{
+					echo '<br /><br />
+					<ul class="erreur">
+						<li>L\'auteur n\'autorise pas la lecture de son texte</li>
+					</ul>';	
+			}
 		}	
 	}
 }
