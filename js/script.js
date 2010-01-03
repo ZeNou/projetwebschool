@@ -291,4 +291,27 @@
 		}
 		return valid_formulaire ;
 	});
+	
+	//VERIFICATION DU FORMULAIRE D'AJOUT D'UN COMMENTAIRE -------------------------------------------------------------------------------------------------------
+	$('#valid_ajoutcommentaire').click(function() {
+		var valid_formulaire = true ;
+		
+		//VERIF DU NOM
+		if($("#comm").val() == "")
+		{
+			$(".ajoutcommentaire").fadeIn().text("Saisir un commentaire") ;
+			valid_formulaire = false ;
+		}
+		else if($("#comm").val().length <= 2 )
+		{
+			$(".ajoutcommentaire").fadeIn().text("3 caractéres minimum") ;
+			valid_formulaire = false ;
+		}
+		else 
+		{
+			$(".ajoutcommentaire").fadeOut();
+		}
+		
+		return valid_formulaire ;
+	});
 });
