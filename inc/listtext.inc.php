@@ -84,7 +84,7 @@ if(isset($_SESSION['id']))
 								<td> '.$valeur[0].' </td>
 								<td> '.$valeur[1].' </td>
 								<td> '.$valeur[2].' </td>
-								<td class="td_listtxt"> '.date("\L\e j/n/Y à H:i:s", $valeur[6]).' </td>
+								<td class="td_listtxt"> '.$valeur[6].' </td>
 								<td class="td_listtxt"> '.$valeur[3].' </td>
 								<td class="td_listtxt"> '.$valeur[4].' </td>
 								<td class="td_listtxt"> '.$valeur[5].' </td>
@@ -168,7 +168,7 @@ if(isset($_SESSION['id']))
 						<td> '.$tab_msg['pseudo'].' </td>
 						<td> '.$tab_msg['nom'].' </td>
 						<td> '.$tab_msg['titre'].' </td>
-						<td class="td_listtxt"> '.date("\L\e j/n/Y à H:i:s", $tab_msg['date_ajout']).' </td>
+						<td class="td_listtxt"> '.$tab_msg['date_ajout'].' </td>
 						<td class="td_listtxt"> '.$tab_msg['droit_lecture'].' </td>
 						<td class="td_listtxt"> '.$tab_msg['droit_notation'].' </td>
 						<td class="td_listtxt"> '.$tab_msg['droit_commenter'].' </td>
