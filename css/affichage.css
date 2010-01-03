@@ -38,6 +38,7 @@ div.form_addtxt {
 fieldset#affichagetxt {
 	font-family: sans-serif;
 	margin: auto;
+	margin-bottom:10px;
 	padding: 15px;
 	width: 70% ;
 	height: 200px;

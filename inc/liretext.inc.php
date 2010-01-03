@@ -74,16 +74,20 @@ if(isset($_GET['idtext']))
 			
 			
 			$sommesnote = 0;
+			$notefinale = 0;
 			$recup_note = new Sql();	
 			$tab_note = Tab($recup_note,'	SELECT note
 											FROM note
 											WHERE texte_id = '.$idtext.' ');
+			if(count($tab_note) != 0)
+			{
 				foreach($tab_note as $note)
 				{
 					$sommesnote += $note['note'] ;
 				}
 				$notefinale = $sommesnote/count($tab_note) ;
-				
+			}
+			
 			if($tab_affichetxt[0]['droit_lecture'] == 1)
 			{
 				echo '
@@ -119,6 +123,7 @@ if(isset($_GET['idtext']))
 							echo '<option value="'.$i.'"> '.$i.' </option> ';
 						}
 					echo '</select>
+					<input type="submit" value="Noter ce texte" />
 					</form>
 					<br /><br />';
 				}
@@ -137,17 +142,28 @@ if(isset($_GET['idtext']))
 					$tab_affichecom = Tab($affiche_com,'SELECT m.pseudo, t.id, c.corps
 														FROM membre m JOIN commentaire c ON(c.id_membre=m.id) JOIN texte t ON(c.id_texte=t.id) 
 														WHERE c.id_texte = '.$idtext.' ');
+					if(count($tab_affichecom) == 0)
+					{
+						echo '<br /><br />
+						<ul class="erreur">
+							<li>Il n\'y a pas de commentaire pour ce texte </li>
+						</ul>';	
+
+					}
+					else
+					{
 						echo '<table>
 								<caption> Voici vos commentaires </caption>' ;								
-					foreach($tab_affichecom as $tab_msg)
-					{
-						echo '
-						<tr> 
-							<td class="commentaire_pseudo"> '.$tab_msg['pseudo'].' </td>
-							<td class="commentaire_corps"> '.$tab_msg['corps'].' </td>
-						</tr> ';
-					}
+						foreach($tab_affichecom as $tab_msg)
+						{
+							echo '
+							<tr> 
+								<td class="commentaire_pseudo"> '.$tab_msg['pseudo'].' </td>
+								<td class="commentaire_corps"> '.$tab_msg['corps'].' </td>
+							</tr> ';
+						}
 						echo '</table>';
+					}
 				}
 				else
 				{
@@ -159,10 +175,10 @@ if(isset($_GET['idtext']))
 			}
 			else
 			{
-					echo '<br /><br />
-					<ul class="erreur">
-						<li>L\'auteur n\'autorise pas la lecture de son texte</li>
-					</ul>';	
+				echo '<br /><br />
+				<ul class="erreur">
+					<li>L\'auteur n\'autorise pas la lecture de son texte</li>
+				</ul>';	
 			}
 		}	
 	}
