@@ -116,21 +116,38 @@ if(isset($_GET['idtext']))
 					
 				if($tab_affichetxt[0]['droit_notation'] == 1)
 				{
-					echo '<form method="POST" action="index.php?page=envoinote" name="noter_txt">
-						<input type="hidden" value="'.$idtext.'" name="idtext" />
-						<input type="hidden" value="'.$tab_affichetxt[0]['pseudo'].'" name="auteur" />
-						<input type="hidden" value="'.$tab_affichetxt[0]['nom'].'" name="nomcat" />
-									
-					Note : <select name="note"' ;
-						for($i=1 ; $i<=10 ;$i++)
-						{
-							echo '<option value="'.$i.'"> '.$i.' </option> ';
-						}
-						
-					echo '</select>
-					<input type="submit" value="Noter ce texte" />
-					</form>
-					<br /><br />';
+					$cherche_note = new Sql();
+	
+					$tab_note = Tab($cherche_note,'	SELECT membre_id, texte_id
+													FROM note 
+													WHERE texte_id = '.$idtext.'
+													AND membre_id = '.$_SESSION['id'].' ');
+					
+					if(count($tab_note) == 0)
+					{
+						echo '<form method="POST" action="index.php?page=envoinote" name="noter_txt">
+							<input type="hidden" value="'.$idtext.'" name="idtext" />
+							<input type="hidden" value="'.$tab_affichetxt[0]['pseudo'].'" name="auteur" />
+							<input type="hidden" value="'.$tab_affichetxt[0]['nom'].'" name="nomcat" />
+										
+						Note : <select name="note"' ;
+							for($i=1 ; $i<=10 ;$i++)
+							{
+								echo '<option value="'.$i.'"> '.$i.' </option> ';
+							}
+							
+						echo '</select>
+						<input type="submit" value="Noter ce texte" />
+						</form>
+						<br /><br />';
+					}
+					else
+					{
+						echo '
+						<ul class="erreur">
+							<li>Vous avez déjà noter ce texte</li>
+						</ul><br /><br />';	
+					}
 				}
 				else
 				{
