@@ -101,7 +101,7 @@ if(isset($_GET['idtext']))
 						</tr>
 						<tr>
 							<td class="td_listtxt"> '.$tab_affichetxt[0]['pseudo'].' </td>
-							<td class="td_listtxt"> '.date("\L\e j/n/Y à H:i:s", $tab_affichetxt[0]['date_ajout']).' </td>
+							<td class="td_listtxt"> '.$tab_affichetxt[0]['date_ajout'].' </td>
 							<td class="td_listtxt"> '.$tab_affichetxt[0]['nom'].' </td>
 							<td class="td_listtxt"> Modéré pas l\'administrateur </td>
 							<td class="td_listtxt"> '.round($notefinale, "2").'/10 ('.count($tab_note).' votant)</td>
