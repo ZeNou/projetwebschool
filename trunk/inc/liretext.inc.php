@@ -158,11 +158,23 @@ if(isset($_GET['idtext']))
 						{
 							echo '
 							<tr> 
-								<td class="commentaire_pseudo"> '.$tab_msg['pseudo'].' </td>
+								<td class="commentaire_pseudo"> '.$tab_msg['pseudo'].' : </td>
 								<td class="commentaire_corps"> '.$tab_msg['corps'].' </td>
 							</tr> ';
 						}
-						echo '</table>';
+						echo '
+							<tr>
+								<td colspan="2" class="commentaire_form">
+								<form method="POST" action="index.php?page=ajoutcommentaire" name="ajoutcommentaire" id="ajoutcommentaire"> 
+									<input type="hidden" value="'.$idtext.'" name="idtext" />
+									<input type="hidden" value="'.$tab_affichetxt[0]['pseudo'].'" name="auteur" />
+									<input type="hidden" value="'.$tab_affichetxt[0]['nom'].'" name="nomcat" />
+									<textarea name="add_comm" id="comm" rows="5" cols="40"></textarea> <br /> <span class="error ajoutcommentaire"> &nbsp; </span> <br />
+									<input type="submit" value="Ajouter le commentaire" id="valid_ajoutcommentaire"/>
+								</form>
+								</td>
+							</tr>
+						</table>';
 					}
 				}
 				else
