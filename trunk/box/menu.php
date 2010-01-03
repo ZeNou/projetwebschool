@@ -46,7 +46,7 @@ if(!isset($_SESSION['id']))
 		
 	}
 	
-	echo '<dt><a href="index.php?page=">Se déconnecter</a></dt>';
+	echo '<dt><a href="index.php?page=accueil&d=1">Se déconnecter</a></dt>';
 	
 	
 	
