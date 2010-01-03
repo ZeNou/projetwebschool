@@ -53,7 +53,7 @@ if(isset($_GET['idtext']))
 								}
 								else 
 								{
-									$contenutxt = file_get_contents('/user_txt/'.$file.'', FILE_USE_INCLUDE_PATH);
+									$contenutxt = file_get_contents('./user_txt/'.$file.'', FILE_USE_INCLUDE_PATH);
 									echo '<div id="corpsdutxt">'.$contenutxt.'</div>' ;
 									fclose($ouverturefile); 
 								}
