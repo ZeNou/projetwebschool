@@ -54,7 +54,7 @@ if(isset($_GET['idtext']))
 								else 
 								{
 									$contenutxt = file_get_contents('./user_txt/'.$file.'', FILE_USE_INCLUDE_PATH);
-									echo '<div id="corpsdutxt">'.$contenutxt.'</div>' ;
+									echo '<div id="corpsdutxt">'.nl2br($contenutxt).'</div>' ; // nl2br pour les retours a la ligne
 									fclose($ouverturefile); 
 								}
 						echo '
@@ -120,8 +120,8 @@ if(isset($_GET['idtext']))
 				echo '
 					<fieldset id=affichagetxt>
 						<legend>'.$tab_affichetxt[0]['titre'].'</legend> 
-						'.$tab_affichetxt[0]['corps'].'
-					</fieldset>';
+						'.nl2br($tab_affichetxt[0]['corps']).'
+					</fieldset>'; /* ajout du nl2br pr les retours a la lignes */
 					
 				if($tab_affichetxt[0]['droit_notation'] == 1)
 				{

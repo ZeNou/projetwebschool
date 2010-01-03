@@ -30,7 +30,7 @@ if(isset($_GET['idtext']))
 						}
 						else 
 						{
-							$contenutxt = file_get_contents('/user_txt/'.$file.'', FILE_USE_INCLUDE_PATH);
+							$contenutxt = file_get_contents('./user_txt/'.$file.'', FILE_USE_INCLUDE_PATH);
 							fclose($ouverturefile); 
 						}
 						
