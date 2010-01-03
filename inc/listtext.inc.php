@@ -187,7 +187,7 @@ if(isset($_SESSION['id']))
 					<td> '.$tab_msg['pseudo'].' </td>
 					<td> '.$tab_msg['nom'].' </td>
 					<td> '.$tab_msg['titre'].' </td>
-					<td class="td_listtxt"> '.date("\L\e j/n/Y à H:i:s", $tab_msg['date_ajout']).' </td>
+					<td class="td_listtxt"> '.$tab_msg['date_ajout'].' </td>
 					<td class="td_listtxt"> '.$tab_msg['droit_lecture'].' </td>
 					<td class="td_listtxt"> '.$tab_msg['droit_notation'].' </td>
 					<td class="td_listtxt"> '.$tab_msg['droit_commenter'].' </td>

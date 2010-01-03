@@ -37,7 +37,7 @@ if(isset($_GET['idtext']))
 						$add_txt = new Sql();
 							
 						$add_new = Req($add_txt,'	INSERT INTO texte (id_membre , titre , corps , date_ajout , id_categorie , droit_lecture , droit_notation , droit_commenter)
-													VALUES ('.$search_txt[0].' , "'.$search_txt[2].'" , "'.$contenutxt.'" , '.$search_txt[6].' , '.$search_txt[1].' , '.$search_txt[3].' , '.$search_txt[4].' , '.$search_txt[5].') ') ;
+													VALUES ('.$search_txt[0].' , "'.$search_txt[2].'" , "'.$contenutxt.'" , NOW() , '.$search_txt[1].' , '.$search_txt[3].' , '.$search_txt[4].' , '.$search_txt[5].') ') ;
 							
 							rename('user_txt/'.$file.'' , 'user_txt/'.$search_txt[0].'#'.$search_txt[1].'#'.$search_txt[2].'#'.$search_txt[3].'#'.$search_txt[4].'#'.$search_txt[5].'#'.$search_txt[6].'#true#'.$extension[0].'.txt' );
 							
