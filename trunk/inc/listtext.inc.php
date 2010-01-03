@@ -197,8 +197,7 @@ if(isset($_SESSION['id']))
 				echo '	<td class="td_listtxt"> <a href="index.php?page=supptext&idtext='.base64_encode($tab_msg['id']).'&type='.base64_encode('bdd').'" title="Supprimé ce texte"><img src="./images/png/supp.png" alt="suppression" /> </td> ';
 			}
 			echo'	</tr>' ;
-		}
-		
+		}		
 	}
 	echo '</table>' ;
 }
