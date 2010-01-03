@@ -104,7 +104,16 @@ if(isset($_GET['idtext']))
 							<td class="td_listtxt"> '.$tab_affichetxt[0]['date_ajout'].' </td>
 							<td class="td_listtxt"> '.$tab_affichetxt[0]['nom'].' </td>
 							<td class="td_listtxt"> Modéré pas l\'administrateur </td>
-							<td class="td_listtxt"> '.round($notefinale, "2").'/10 ('.count($tab_note).' votant)</td>
+							<td class="td_listtxt"> ';
+							if($tab_affichetxt[0]['droit_notation'] == 1)
+							{
+								echo round($notefinale, "2").'/10 ('.count($tab_note).' votant)';
+							}
+							else
+							{
+								echo 'Notation désactiver' ;
+							}
+					echo '	</td>
 						</tr>
 					</table><br /><br />';
 							
@@ -164,6 +173,9 @@ if(isset($_GET['idtext']))
 					$tab_affichecom = Tab($affiche_com,'SELECT m.pseudo, t.id, c.corps
 														FROM membre m JOIN commentaire c ON(c.id_membre=m.id) JOIN texte t ON(c.id_texte=t.id) 
 														WHERE c.id_texte = '.$idtext.' ');
+					
+					echo '<table>
+								<caption> Voici vos commentaires </caption>' ;
 					if(count($tab_affichecom) == 0)
 					{
 						echo '<br /><br />
@@ -174,8 +186,6 @@ if(isset($_GET['idtext']))
 					}
 					else
 					{
-						echo '<table>
-								<caption> Voici vos commentaires </caption>' ;								
 						foreach($tab_affichecom as $tab_msg)
 						{
 							echo '
@@ -184,20 +194,20 @@ if(isset($_GET['idtext']))
 								<td class="commentaire_corps"> '.$tab_msg['corps'].' </td>
 							</tr> ';
 						}
-						echo '
-							<tr>
-								<td colspan="2" class="commentaire_form">
-								<form method="POST" action="index.php?page=ajoutcommentaire" name="ajoutcommentaire" id="ajoutcommentaire"> 
-									<input type="hidden" value="'.$idtext.'" name="idtext" />
-									<input type="hidden" value="'.$tab_affichetxt[0]['pseudo'].'" name="auteur" />
-									<input type="hidden" value="'.$tab_affichetxt[0]['nom'].'" name="nomcat" />
-									<textarea name="add_comm" id="comm" rows="5" cols="40"></textarea> <br /> <span class="error ajoutcommentaire"> &nbsp; </span> <br />
-									<input type="submit" value="Ajouter le commentaire" id="valid_ajoutcommentaire"/>
-								</form>
-								</td>
-							</tr>
-						</table>';
 					}
+					echo '
+						<tr>
+							<td colspan="2" class="commentaire_form">
+							<form method="POST" action="index.php?page=ajoutcommentaire" name="ajoutcommentaire" id="ajoutcommentaire"> 
+								<input type="hidden" value="'.$idtext.'" name="idtext" />
+								<input type="hidden" value="'.$tab_affichetxt[0]['pseudo'].'" name="auteur" />
+								<input type="hidden" value="'.$tab_affichetxt[0]['nom'].'" name="nomcat" />
+								<textarea name="add_comm" id="comm" rows="5" cols="40"></textarea> <br /> <span class="error ajoutcommentaire"> &nbsp; </span> <br />
+								<input type="submit" value="Ajouter le commentaire" id="valid_ajoutcommentaire"/>
+							</form>
+							</td>
+						</tr>
+					</table>';
 				}
 				else
 				{
