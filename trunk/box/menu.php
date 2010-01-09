@@ -42,6 +42,12 @@ if(!isset($_SESSION['id']))
 							<li><a href="index.php?page=modifcategorie">Modifier une catégories</a></li>
 						</ul>
 					</dd>
+			<dt>Membre :</dt>
+					<dd>
+						<ul>
+							<li><a href="index.php?page=listemembre">Voir la liste des membres</a></li>
+						</ul>
+					</dd>
 		';
 		
 	}
