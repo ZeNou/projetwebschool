@@ -10,7 +10,7 @@ if(isset($_SESSION['id']))
 		$tab_autorisation = Tab($autorisation,'	SELECT *
 												FROM droitbycategorie 
 												WHERE membre_id = '.$idok.'');
-		
+		echo '<div id="restrictionbycat">';
 		if(count($tab_autorisation) != 0)
 		{
 			echo '
@@ -48,6 +48,7 @@ if(isset($_SESSION['id']))
 		else
 		{
 			echo '
+				<form method="POST" action="" id="form_modifdroit">
 				<table>
 					<tr>
 						<th> Ce membre n\'a pas de restrictions. </th>
@@ -55,7 +56,29 @@ if(isset($_SESSION['id']))
 				</table> <br /> <br />';
 		}
 		
-		echo 'formulaire des modifications des restrictions';
+		$listecat = new Sql();
+		
+		$tab_listecat = Tab($listecat,'	SELECT *
+										FROM categorie ');
+		
+		echo '
+			<table>
+				<tr>
+					<th> Veuillez cocher la/les catégorie(s) <br /> que vous voulez interdire à ce membre </th>
+				</tr>';
+		foreach($tab_listecat as $msg_listecat)
+		{
+			echo '
+				<tr>
+					<td><input type="checkbox" value="'.$msg_listecat['id'].'" name="categorie" id="'.$msg_listecat['nom'].'" /> <label for="'.$msg_listecat['nom'].'"> '.$msg_listecat['nom'].' </label></td>
+				</tr>';
+		}
+		echo '	<tr>
+					<td><input type="submit" value="valider" id="valid_form_modifdroit" /></td>
+				</tr>
+			</table>
+			</form>
+		</div>';
 	}
 }
 ?>

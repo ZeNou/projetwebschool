@@ -18,11 +18,32 @@ if(isset($_SESSION['id']))
 				<tr>
 					<td> <label for="cat"> Catégorie : </label> </td>
 					<td> ' ;
-						$list_cat = new Sql();
+						$autorisation = new Sql();
+		
+						$tab_autorisation = Tab($autorisation,'	SELECT *
+																FROM droitbycategorie 
+																WHERE membre_id = '.$_SESSION['id'].'');	
+						
+						if(count($tab_autorisation) == 0)
+						{
+							$list_cat = new Sql();
 									
-						$tab_cat = Tab($list_cat,'	SELECT id, nom
-													FROM categorie  ');
-								
+							$tab_cat = Tab($list_cat,'	SELECT id, nom
+														FROM categorie  ');
+						}
+						else
+						{
+							$list_cat = new Sql();
+									
+							$tab_cat = Tab($list_cat,'	SELECT c.id, c.nom
+														FROM categorie c
+														WHERE c.id NOT IN ( SELECT categorie_id
+																			FROM droitbycategorie
+																			WHERE membre_id = '.$_SESSION['id'].' ) ');
+																			
+							echo 'Vous n\'avez pas accés à toutes les catégories du site <br />' ;
+						}
+						
 						echo '<select name="add_txtcat" id="cat">
 								<option value="0" selected="selected"> --- Choisir --- </option>' ;
 							foreach ($tab_cat as $tab_msg)
