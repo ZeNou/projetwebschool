@@ -52,9 +52,31 @@ div#header {
 		color: #f00;
 	}
 	
-dl#menu, div#page {
-	float: left;
+div#container {
+	margin: auto;
+	width: 1000px;
+
 }
+	
+	div#gauche{
+		width: 300px;
+		padding: 10px;
+		background-color: #fff;
+		
+		float:left;
+
+	}
+
+	div#droite {
+		width: 660px;
+		height: 100%;
+		padding: 10px;
+		background-color: #ddd;
+
+		
+		float:left;
+
+	}
 
 	dl#menu {
 		width: 250px;
@@ -79,19 +101,9 @@ dl#menu, div#page {
 		padding: 0 0 0 10px;
 	}
 
-div#page {
-	width: 710px;
-	padding: 10px;
-	background-color: #ddd;
-	min-height: 300px;
-}
 
-div#container {
-	margin: auto;
-	width: 1000px;
-}
 
-p#footer {
+div#footer {
 	clear: both;
 	height: 30px;
 	line-height: 30px;
@@ -101,9 +113,9 @@ p#footer {
 	background-color: #000;
 	margin: auto;
 	width: 1000px;
+	position:relative;
 }
 
-p#footer a {
+div#footer a {
 	color: #ff0;
 }
-
