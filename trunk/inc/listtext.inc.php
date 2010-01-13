@@ -201,4 +201,8 @@ if(isset($_SESSION['id']))
 	}
 	echo '</table>' ;
 }
+else
+{
+	echo errAcces();
+}
 ?>

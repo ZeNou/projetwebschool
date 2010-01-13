@@ -23,4 +23,8 @@ if(isset($_SESSION['id']))
 		</ul> ';
 	}
 }
+else
+{
+	echo errAcces();
+}
 ?>

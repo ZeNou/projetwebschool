@@ -22,5 +22,8 @@ if(isset($_SESSION['id']))
 	changePage('index.php', 1);
 	
 }
-
+else
+{
+	echo errAcces();	
+}
 ?>

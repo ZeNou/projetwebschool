@@ -26,8 +26,7 @@ if(!isset($_SESSION['id']))
 					<dd>
 						<ul>
 							<li><a href="index.php?page=listamis">Gerer vos amis</a></li>
-							<li><a href="index.php?page=">Modifier les informations de votre compte</a></li>
-							<li><a href="index.php?page=">Modifier votre mot de passe</a></li>
+							<li><a href="index.php?page=pageperso">Votre profil</a></li>
 						</ul>
 					</dd>
 		';

@@ -201,4 +201,8 @@ if(isset($_SESSION['id']))
 		form_addtext();
 	}
 }
+else
+{
+	echo errAcces();
+}
 ?>

@@ -1,5 +1,5 @@
 ﻿<?php
-if($_SESSION['level'] == 9)
+if($_SESSION['level'] == 9 AND isset($_SESSION['id']))
 {
 	$form_addcat = '<h1>Ajouter une nouvelle catégorie</h1><br />
 			<form action="#" method="POST" name="formulaire_addcat" id="formulaire_addcat">
@@ -68,11 +68,6 @@ if($_SESSION['level'] == 9)
 }
 else
 {
-
-	echo '<br /><br />
-			<ul class="erreur">
-				<li>Vous n\'avez pas accès à cette page</li>
-			</ul>' ;
-
+	echo errAcces();	
 }
 ?>
