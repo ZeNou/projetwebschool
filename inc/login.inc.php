@@ -62,4 +62,8 @@ if(!isset($_SESSION['id']))
 		echo $form_loggin; 
 	}
 }
+else
+{
+	echo errAcces();	
+}
 ?>

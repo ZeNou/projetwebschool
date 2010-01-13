@@ -1,5 +1,5 @@
 ﻿<?php
-if(isset($_SESSION['id']))
+if(isset($_SESSION['id']) AND $_SESSION['level'] == 9)
 {	
 	if(isset($_GET['idmem']))
 	{
@@ -114,5 +114,9 @@ if(isset($_SESSION['id']))
 			</form>
 		</div>';
 	}
+}
+else
+{
+	echo errAcces();	
 }
 ?>

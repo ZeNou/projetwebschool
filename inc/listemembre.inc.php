@@ -1,4 +1,6 @@
 ﻿<?php
+if(isset($_SESSION['id']) AND $_SESSION['level'] == 9)
+{
 	$listemembre = new Sql();
 	
 	$tab_listemembre = Tab($listemembre,'	SELECT *
@@ -31,4 +33,9 @@
 			';
 		}
 	echo '</table>' ;
+}
+else
+{
+	echo errAcces();	
+}
 ?>

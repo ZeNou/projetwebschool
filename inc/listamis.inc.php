@@ -1,12 +1,10 @@
 <?php
 if(!isset($_SESSION['id']))
 {
-
 	echo errAcces();
-	exit();
-				
 }
-
+else
+{
 	echo '<h1>Liste de vos amis</h1><br />' ;
 
 	echo '<dl>';
@@ -47,6 +45,5 @@ if(!isset($_SESSION['id']))
 		}
 		
 	echo '</dl>';
-
-	
+}	
 ?>

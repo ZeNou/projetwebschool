@@ -1,13 +1,7 @@
 ﻿<?php
-if(isset($_GET['idtext']))
+if(isset($_SESSION['id']) AND $_SESSION['level'] == 9 )
 {
-	if($_SESSION['level'] == 1)
-	{
-		echo '	<ul class="erreur">
-					<li>Vous n\'avez pas accès à cette page, votre droit à la lecture vous a été supprimé</li>
-				</ul>' ;
-	}
-	else
+	if(isset($_GET['idtext']))
 	{
 		$idtext = base64_decode($_GET['idtext']) ;
 		
@@ -61,6 +55,11 @@ if(isset($_GET['idtext']))
 			}
 		}
 		closedir($MyDirectory);
+		
 	}
+}
+else
+{
+	echo errAcces();	
 }
 ?>
