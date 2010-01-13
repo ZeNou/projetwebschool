@@ -55,12 +55,34 @@ if(isset($_SESSION['id']) AND $_SESSION['level'] == 9)
 		}
 		elseif(base64_decode($_GET['action']) == "supp")
 		{
-			$del_cat = new Sql();
-						
-			$del = Req($del_cat,'	DELETE FROM categorie
-									WHERE id = '.$idok.'  ');
+			$affiche_txt = new Sql();
+	
+			$tab_affichetxt = Tab($affiche_txt,'SELECT COUNT(*) AS nbretxt
+												FROM texte
+												WHERE id_categorie='.$idok.' ');
+		
+			if($tab_affichetxt[0]['nbretxt'] == 0)
+			{
+				$del_cat = new Sql();
+							
+				$del = Req($del_cat,'	DELETE FROM categorie
+										WHERE id = '.$idok.'  ');
 										
-			changePage('index.php?page=modifcategorie', 1);								
+				$del_droit = new Sql();
+							
+				$del = Req($del_cat,'	DELETE FROM droitbycategorie
+										WHERE categorie_id = '.$idok.'  ');
+											
+				changePage('index.php?page=modifcategorie', 1);		
+			}
+			else
+			{
+				echo '<br /><br />
+					<div class="form_modifcat">
+						<ul class="erreur">
+							<li> La catégorie ne peux être supprimé, des textes y sont répertorier </li>
+						</ul> ';
+			}
 		}
 	}	
 	
