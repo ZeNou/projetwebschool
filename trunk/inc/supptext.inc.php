@@ -47,7 +47,18 @@ if(isset($_SESSION['id']) AND $_SESSION['level'] == 9)
 						
 			$del = Req($del_txt,'	DELETE FROM texte
 									WHERE id = '.$idtxt.'  ');
-										
+			
+			$del_note = new Sql();
+						
+			$del = Req($del_note,'	DELETE FROM note
+									WHERE texte_id = '.$idtxt.'  ');
+			
+			$del_commentaire = new Sql();
+						
+			$del = Req($del_note,'	DELETE FROM commentaire
+									WHERE id_texte = '.$idtxt.'  ');
+									
+									
 			changePage('index.php?page=listtext', 1);		
 		}
 	}	
