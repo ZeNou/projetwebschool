@@ -52,12 +52,22 @@ div#header {
 		color: #f00;
 	}
 	
+div#millieu {
+
+	margin:auto;
+	position:relative;
+	width:1000px;
+	
+}
+	
 div#container {
 
+	background-color:white;
 	margin: auto;
 	width: 1000px;
-	height:auto;
-	/*min-height:300px;*/
+	
+	
+	float:left;
 
 }
 	
@@ -69,7 +79,7 @@ div#container {
 		float:left;
 		
 		height:100%;
-	
+		
 	}
 
 	div#droite {
@@ -80,6 +90,8 @@ div#container {
 		
 		
 		float:left;
+		
+		min-height:323px;
 
 	}
 
@@ -87,7 +99,7 @@ div#container {
 		width: 250px;
 		padding: 0 10px 10px;
 		background-color: #fff;
-		
+		height:100%;
 
 	}
 
