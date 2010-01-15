@@ -5,6 +5,7 @@ if(isset($_SESSION['id']))
 	$nombredetexteM = 0 ;
 
 	echo '
+		Voici votre profil mister '.$_SESSION['pseudo'].' <br /><br />
 	<table class="listtext">
 		<caption> Vos textes non modérés </caption>
 		<tr>
@@ -37,7 +38,8 @@ if(isset($_SESSION['id']))
 	
 	$tab_affichetxt = Tab($affiche_txt,'SELECT COUNT(*) AS nbretxt, AVG(note) AS moyenne
 										FROM texte t LEFT JOIN note n ON(t.id = n.texte_id)
-										WHERE t.id_membre='.$_SESSION['id'].' ');
+										WHERE t.id_membre='.$_SESSION['id'].' 
+										AND droit_notation=1');
 	
 		if($tab_affichetxt[0]['moyenne'] == NULL)
 			$moyenne = "Aucun de vos n'a encore été notés" ;
@@ -49,7 +51,7 @@ if(isset($_SESSION['id']))
 		<caption> Vos textes modérés </caption>
 		<tr>
 			<th> Nombre de texte </th>
-			<th> Moyenne des notes de tous vos textes </th>
+			<th> Moyenne des notes de tous vos textes (dont la notation est activé) </th>
 		</tr>
 		<tr>
 			<td class="td_listtxt">'.$tab_affichetxt[0]['nbretxt'].'</td>
