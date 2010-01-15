@@ -108,6 +108,9 @@ if(isset($_SESSION['id']) AND $_SESSION['level'] == 9)
 				</tr>';
 		}
 		echo '	<tr>
+					<td> <span class="error checkboxautorisation"> &nbsp; </span> </td>
+				</tr>
+				<tr>
 					<td><input type="submit" value="valider" id="valid_form_modifdroit" /></td>
 				</tr>
 			</table>

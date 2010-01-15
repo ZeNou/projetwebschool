@@ -146,7 +146,7 @@
 			$("#cat").next(".error").fadeIn().text("Nom vide") ;
 			valid_formulaire = false ;
 		}
-		else if(!$("#cat").val().match(/^[a-zA-Z]*$/))
+		else if(!$("#cat").val().match(/^[a-zA-Z\- ]*$/))
 		{
 			$("#cat").next(".error").fadeIn().text("Saisir un nom valide") ;
 			valid_formulaire = false ;
@@ -174,7 +174,7 @@
 			$("#add_newnamecat").next(".error").fadeIn().text("Nom vide") ;
 			valid_formulaire = false ;
 		}
-		else if(!$("#add_newnamecat").val().match(/^[a-zA-Z]*$/))
+		else if(!$("#add_newnamecat").val().match(/^[a-zA-Z\- ]*$/))
 		{
 			$("#add_newnamecat").next(".error").fadeIn().text("Saisir un nom valide") ;
 			valid_formulaire = false ;
@@ -202,7 +202,7 @@
 			$("#titre").next(".error").fadeIn().text("Titre vide") ;
 			valid_formulaire = false ;
 		}
-		else if(!$("#titre").val().match(/^[a-zA-Z ]*$/))
+		else if(!$("#titre").val().match(/^[a-zA-Z\- ]*$/))
 		{
 			$("#titre").next(".error").fadeIn().text("Saisir un titre valide") ;
 			valid_formulaire = false ;
@@ -310,6 +310,22 @@
 		else 
 		{
 			$(".ajoutcommentaire").fadeOut();
+		}
+		
+		return valid_formulaire ;
+	});
+	
+	//VERIFICATION DU FORMULAIRE D'UNE RESTRICTION -----------------------------------------------------------------------------------------------------------------
+	$('#valid_form_modifdroit').click(function() {
+	
+		var checkOK = $("input:checked").length ;
+   
+		var valid_formulaire = true ;
+	
+		if(checkOK == 0)
+		{
+			$(".checkboxautorisation").fadeIn().text("Veuillez choisir au minimum une catégorie") ;
+			valid_formulaire = false ;
 		}
 		
 		return valid_formulaire ;
