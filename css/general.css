@@ -56,7 +56,7 @@ div#container {
 
 	margin: auto;
 	width: 1000px;
-	height:300px;
+	height:auto;
 	/*min-height:300px;*/
 
 }
@@ -120,7 +120,7 @@ div#footer {
 	background-color: #000;
 	margin: auto;
 	width: 1000px;
-	/*position:relative;*/
+	position:relative;
 }
 
 div#footer a {
