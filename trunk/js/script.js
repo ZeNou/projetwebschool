@@ -202,7 +202,7 @@
 			$("#titre").next(".error").fadeIn().text("Titre vide") ;
 			valid_formulaire = false ;
 		}
-		else if(!$("#titre").val().match(/^[a-zA-Z\- ]*$/))
+		else if(!$("#titre").val().match(/^[a-zA-Z0-9\- ]*$/))
 		{
 			$("#titre").next(".error").fadeIn().text("Saisir un titre valide") ;
 			valid_formulaire = false ;
