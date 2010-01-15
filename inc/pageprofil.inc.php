@@ -36,25 +36,33 @@ if(isset($_SESSION['id']))
 	
 	$affiche_txt = new Sql();
 	
-	$tab_affichetxt = Tab($affiche_txt,'SELECT COUNT(*) AS nbretxt, AVG(note) AS moyenne
+	$tab_affichetxt = Tab($affiche_txt,'SELECT COUNT(*) AS nbretxt
 										FROM texte t LEFT JOIN note n ON(t.id = n.texte_id)
-										WHERE t.id_membre='.$_SESSION['id'].' 
-										AND droit_notation=1');
+										WHERE t.id_membre='.$_SESSION['id'].'');
 	
-		if($tab_affichetxt[0]['moyenne'] == NULL)
+	$affiche_txt_notation = new Sql();
+	
+	$tab_affichetxt_notation = Tab($affiche_txt_notation,'	SELECT COUNT(*) AS nbretxt, AVG(note) AS moyenne
+															FROM texte t LEFT JOIN note n ON(t.id = n.texte_id)
+															WHERE t.id_membre='.$_SESSION['id'].'
+															AND droit_notation=1');
+	
+		if($tab_affichetxt_notation[0]['moyenne'] == NULL)
 			$moyenne = "Aucun de vos n'a encore été notés" ;
 		else
-			$moyenne = $tab_affichetxt[0]['moyenne'] ;
+			$moyenne = $tab_affichetxt_notation[0]['moyenne'] ;
 	
 	echo '
 	<table class="listtext">
 		<caption> Vos textes modérés </caption>
 		<tr>
 			<th> Nombre de texte </th>
-			<th> Moyenne des notes de tous vos textes (dont la notation est activé) </th>
+			<th> Nombre de texte <br /> (Notation activé) </th>
+			<th> Moyenne des notes de tous vos textes <br /> (dont la notation est activé) </th>
 		</tr>
 		<tr>
 			<td class="td_listtxt">'.$tab_affichetxt[0]['nbretxt'].'</td>
+			<td class="td_listtxt">'.$tab_affichetxt_notation[0]['nbretxt'].'</td>
 			<td class="td_listtxt">'.round($moyenne, "2").' / 10</td>
 		</th>
 	</table>';
