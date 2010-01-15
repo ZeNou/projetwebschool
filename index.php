@@ -50,20 +50,23 @@ if (isset($_GET['d']) && isset($_SESSION['id'])) {
 			</ul>
 		</div>
 		
-		<div id="container">
+		<div id="millieu">
 		
-			<div id="gauche">
-				<?php include(dirname(__FILE__). '/box/menu.php'); ?>
+			<div id="container">
+			
+				<div id="gauche">
+					<?php include(dirname(__FILE__). '/box/menu.php'); ?>
+				</div>
+				
+				<div id="droite">
+					
+					<?php include(dirname(__FILE__). '/centre.php'); ?>
+					
+				</div>
+
 			</div>
 			
-			<div id="droite">
-				
-				<?php include(dirname(__FILE__). '/centre.php'); ?>
-				
-			</div>
-
 		</div>
-		
 	
 		
 		<div id="footer">&copy; <?php echo date("Y"); ?>, INSIA - <a href="index.php?page=contact">Contact</a></div>
