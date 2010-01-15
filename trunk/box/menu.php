@@ -27,7 +27,6 @@ if(!isset($_SESSION['id']))
 						<ul>
 							<li><a href="index.php?page=listamis">Gerer vos amis</a></li>
 							<li><a href="index.php?page=pageprofil">Votre profil</a></li>
-							<li><a href="index.php?page=listamis">Votre liste d\'amis</a></li>
 						</ul>
 					</dd>
 		';
